@@ -1,52 +1,44 @@
-using System;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Controls;
 
 public class PlayerScript : MonoBehaviour
 {
     public float speed = 30f;
     public Rigidbody2D body;
     public float jumpHeight = 6f;
-    private Controls controls;
-    private float moveDirection;
+    private Controls _controls;
+    private float _moveDirection;
+    private GroundCheck _groundCheck;
 
 
     // Start is called before the first frame update
     void Awake()
     {
-        controls = new Controls();
-        controls.player.jump.performed += ctx => body.AddForce(new Vector2(0, jumpHeight));
-        controls.player.move.performed += ctx => Debug.Log($"Move! {ctx.ReadValue<float>()}");
+        _groundCheck = GameObject.FindGameObjectWithTag("groundCheck").GetComponent<GroundCheck>();
+        
+        _controls = new Controls();
+        _controls.player.jump.performed += _ =>
+        {
+            if (!_groundCheck.isGrounded) return;
+            body.AddForce(new Vector2(0, jumpHeight), ForceMode2D.Impulse);
+        };
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        float direction = controls.player.move.ReadValue<float>(); // A: -1; D: 1; 0: not moving
+        float direction = _controls.player.move.ReadValue<float>(); // A: -1; D: 1; 0: not moving
         if (direction != 0)
         {
-            moveDirection = direction;
+            transform.position += new Vector3(direction, 0, 0) * Time.fixedDeltaTime * speed;
         }
-    }
-
-    private void FixedUpdate()
-    {
-        MoveCharacter(moveDirection);
-    }
-
-    void MoveCharacter(float direction)
-    {
-        body.AddForce(new Vector2(direction * speed * 10 * Time.fixedDeltaTime, 0));
     }
 
     void OnEnable()
     {
-        controls.Enable();
+        _controls.Enable();
     }
 
     void OnDisable()
     {
-        controls.Disable();
+        _controls.Disable();
     }
 }
