@@ -1,27 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Input = UnityEngine.Input;
+using UnityEngine.InputSystem;
 
 public class PlayerScript : MonoBehaviour
 {
-    public Rigidbody2D myRigidbody;
+    public Rigidbody2D body;
+    public float jumpHeight = 6f;
+    private Controls controls;
 
-   
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        controls = new Controls();
+        controls.player.jump.performed += OnJump;
+    }
+    
+    void OnEnable()
+    {
+        controls.Enable();
+    }
+    void OnDisable()
+    {
+        controls.Disable();
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnJump(InputAction.CallbackContext context)
     {
-        bool jump = Input.GetKey("Jump");
-        
-        if (jump)
-        {
-            transform.Translate(new Vector3(0, 0, 0));
-        }
+        Debug.Log("OnJump called");
+        body.velocity += new Vector2(0, jumpHeight);
+        transform.Translate(new Vector3(0, 0, 0));
     }
 }
