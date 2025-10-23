@@ -8,17 +8,17 @@ public class PlayerScript : MonoBehaviour
     private Controls _controls;
     private float _moveDirection;
     private GroundCheck _groundCheck;
+	public LayerMask groundLayer;
+
 
 
     // Start is called before the first frame update
     void Awake()
-    {
-        _groundCheck = GameObject.FindGameObjectWithTag("groundCheck").GetComponent<GroundCheck>();
-        
+    {        
         _controls = new Controls();
         _controls.player.jump.performed += _ =>
         {
-            if (!_groundCheck.isGrounded) return;
+            if (!IsGrounded()) return;
             body.AddForce(new Vector2(0, jumpHeight), ForceMode2D.Impulse);
         };
     }
@@ -41,4 +41,19 @@ public class PlayerScript : MonoBehaviour
     {
         _controls.Disable();
     }
+
+
+	bool IsGrounded() {
+    	Vector2 position = transform.position;
+    	Vector2 direction = Vector2.down;
+    	float distance = 0.5f; 
+    	Vector2 boxSize = new Vector2(0.13f, 0.5f); 
+    	
+    	RaycastHit2D hit = Physics2D.BoxCast(position, boxSize, 0f, direction, distance, groundLayer);
+        
+        Color debugColor = hit.collider != null ? Color.green : Color.red;
+        Debug.DrawRay(position, direction * distance, debugColor, 0.5f);
+        
+        return hit.collider != null;   
+	}
 }
