@@ -7,7 +7,6 @@ public class PlayerScript : MonoBehaviour
     public float jumpHeight = 6f;
     private Controls _controls;
     private float _moveDirection;
-    private GroundCheck _groundCheck;
 	public LayerMask groundLayer;
 
 
