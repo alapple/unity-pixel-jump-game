@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 218e9f05f09316fccbcfa8d07d603c81
+guid: 69ceeff6746dafcdebf313469fa9bda2
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -127,9 +127,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: character-sprite-32x32-standing
+  - name: Sprites 1
     originalName: 
-    pivot: {x: 0.5294118, y: 0}
+    pivot: {x: 0.5031447, y: -0.42857146}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -137,9 +137,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 17
-      height: 32
-    spriteID: 073a8209e44b336b5b10b41349c10973
+      width: 159
+      height: 112
+    spriteID: bae9121345319f2fe9f7c9dc06d550e2
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -153,25 +153,25 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 2161269325
+      value0: 2213610511
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: character-sprite-32x32-standing
+    name: Sprites 1
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: character-sprite-32x32-standing
+    - name: Sprites 1
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 7
-        y: 0
-        width: 17
-        height: 32
-      spriteId: 073a8209e44b336b5b10b41349c10973
+        x: 0
+        y: 48
+        width: 159
+        height: 112
+      spriteId: bae9121345319f2fe9f7c9dc06d550e2
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -181,5 +181,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 32, y: 32}
-  previousTextureSize: {x: 32, y: 64}
+  canvasSize: {x: 160, y: 160}
+  previousTextureSize: {x: 256, y: 128}
