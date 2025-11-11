@@ -6,30 +6,18 @@ public class RespawnButton : MonoBehaviour
 {
     private Button respawnButton;
 
-    void Start()
+    void Awake() // Changed to Awake, good for getting component references
     {
         respawnButton = GetComponent<Button>();
         respawnButton.onClick.AddListener(OnButtonClicked);
-
-        // Check if the Respawn singleton is available
-        if (Respawn.Instance == null)
-        {
-            Debug.LogError("Respawn.Instance is null! Make sure the Respawn script is active in a loaded scene and its Awake method has run.");
-        }
     }
 
     private void OnButtonClicked()
     {
-        SceneManager.LoadScene("Main", LoadSceneMode.Single);
-        Debug.Log("Respawn button clicked");
-        if (Respawn.Instance != null) // Access the singleton instance
-        {
-            Respawn.Instance.RespawnPlayer();
-        }
-        else
-        {
-            Debug.LogError("Respawn manager not available!");
-        }
+        Debug.Log("Loading Main scene...");
+        // This button's ONLY job is to load the scene.
+        // The RespawnManager in the "Main" scene will handle spawning.
+        SceneManager.LoadScene("Main", LoadSceneMode.Single); 
     }
 
     private void OnDestroy()

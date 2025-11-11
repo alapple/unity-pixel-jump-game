@@ -1,38 +1,99 @@
 using UnityEngine;
+using System.Collections; // For IEnumerator
 
 public class Respawn : MonoBehaviour
 {
-    // Static instance of Respawn, accessible from anywhere
     public static Respawn Instance { get; private set; }
 
-    private void Awake() // Awake is called before Start, good for initialization
+    [Header("Respawn Settings")]
+    public Transform respawnPoint; 
+    public float respawnDelay = 0f; // Make this 0 for immediate spawn on scene load
+                                    // or keep it for a short delay after scene load
+    public GameObject playerPrefab; 
+
+    private GameObject currentPlayerInstance;
+
+    private void Awake()
     {
         if (Instance != null && Instance != this)
         {
-            // If another instance already exists, destroy this one
-            Debug.LogWarning("Found more than one Respawn instance! Destroying this duplicate.");
+            Debug.LogWarning("Found more than one Respawn instance! Destroying this duplicate.", this);
             Destroy(gameObject); 
         }
         else
         {
             Instance = this;
-            // Optionally, if you want this RespawnManager to persist across scene loads:
-            // DontDestroyOnLoad(gameObject); 
-            Debug.Log("Respawn instance set!");
+            // Uncomment if this RespawnManager should persist across ALL scene loads
+            // DontDestroyOnLoad(gameObject);
+            Debug.Log("Respawn instance set up!");
         }
+    }
+
+    void Start() // This Start method will run *after* the Main scene is fully loaded
+    {
+        if (playerPrefab == null)
+        {
+            Debug.LogError("Player Prefab not assigned to Respawn Manager! Cannot initialize player.", this);
+            return;
+        }
+
+        if (respawnPoint == null)
+        {
+            Debug.LogWarning("Respawn Point not assigned to Respawn Manager! Using default (0,0,0).", this);
+            GameObject defaultRespawnObj = new GameObject("DefaultRespawnPoint");
+            respawnPoint = defaultRespawnObj.transform;
+            respawnPoint.position = Vector3.zero;
+        }
+
+        // IMPORTANT: Call the spawn routine here to spawn the player when the scene loads
+        // Use a coroutine even if delay is 0, to ensure all other Start() methods have a chance to run
+        StartCoroutine(RespawnRoutine(respawnDelay)); 
     }
 
     public void RespawnPlayer()
     {
-        Debug.Log("Respawn player (called via Singleton)");
-        // Add your actual respawn logic here
+        // This method can be called later for in-game respawns (e.g., after player dies)
+        if (currentPlayerInstance != null)
+        {
+            Destroy(currentPlayerInstance);
+        }
+        StartCoroutine(RespawnRoutine(respawnDelay));
+    }
+
+    private IEnumerator RespawnRoutine(float delay)
+    {
+        if (delay > 0)
+        {
+            Debug.Log($"Waiting {delay} seconds to spawn/respawn player...");
+            yield return new WaitForSeconds(delay);
+        }
+        else
+        {
+            // Even with 0 delay, yielding for a frame allows other initializations
+            yield return null; 
+        }
+
+        SpawnPlayer();
+        Debug.Log("Player spawned!");
+    }
+
+    private void SpawnPlayer()
+    {
+        if (playerPrefab == null || respawnPoint == null)
+        {
+            Debug.LogError("Player Prefab or Respawn Point is null! Cannot spawn player.", this);
+            return;
+        }
+        
+        currentPlayerInstance = Instantiate(playerPrefab, respawnPoint.position, respawnPoint.rotation);
+        currentPlayerInstance.name = "Player (Active)";
     }
 
     private void OnDestroy()
     {
         if (Instance == this)
         {
-            Instance = null; // Clear the instance when this object is destroyed
+            Instance = null;
         }
     }
 }
