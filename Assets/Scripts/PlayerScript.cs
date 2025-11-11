@@ -46,7 +46,7 @@ public class PlayerScript : MonoBehaviour
     	Vector2 position = transform.position;
     	Vector2 direction = Vector2.down;
     	float distance = 0.5f; 
-    	Vector2 boxSize = new Vector2(0.5f, 0.5f); 
+    	Vector2 boxSize = new Vector2(0.13f, 0.5f); 
     	
     	RaycastHit2D hit = Physics2D.BoxCast(position, boxSize, 0f, direction, distance, groundLayer);
         
