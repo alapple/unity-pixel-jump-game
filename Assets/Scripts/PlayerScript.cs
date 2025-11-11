@@ -9,6 +9,10 @@ public class PlayerScript : MonoBehaviour
     private float _moveDirection;
 	public LayerMask groundLayer;
 
+    [SerializeField] 
+    private Animator animator;
+    
+
 
 
     // Start is called before the first frame update
@@ -28,6 +32,11 @@ public class PlayerScript : MonoBehaviour
         if (direction != 0)
         {
             transform.position += new Vector3(direction, 0, 0) * Time.fixedDeltaTime * speed;
+            animator.SetBool("isWalking", true);
+        }
+        else
+        {
+            animator.SetBool("isWalking", false);
         }
     }
 
