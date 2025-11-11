@@ -8,6 +8,7 @@ TagManager:
   - groundCheck
   - Enemy
   - Coin
+  - Trigger
   layers:
   - Default
   - TransparentFX
