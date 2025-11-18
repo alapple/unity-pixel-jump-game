@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -9,12 +10,15 @@ public class PlayerScript : MonoBehaviour
     private Controls _controls;
     private float _moveDirection;
 	public LayerMask groundLayer;
+    public int maxHealth = 100;
+    public int currentHealth;
 
     [SerializeField] 
     private Animator animator;
     
     void Awake()
     {        
+        currentHealth = maxHealth;
         _controls = new Controls();
         _controls.player.jump.performed += _ =>
         {
@@ -61,4 +65,9 @@ public class PlayerScript : MonoBehaviour
         
         return hit.collider != null;   
 	}
+
+    public void ChangeHealth(int amount)
+    {
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+    }
 }
