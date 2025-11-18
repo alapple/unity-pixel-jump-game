@@ -13,10 +13,6 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] 
     private Animator animator;
     
-
-
-
-    // Start is called before the first frame update
     void Awake()
     {        
         _controls = new Controls();
