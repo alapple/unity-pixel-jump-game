@@ -42,7 +42,7 @@ public class Respawn : MonoBehaviour
             Debug.LogWarning("Respawn Point not assigned to Respawn Manager! Using default (0,0,0).", this);
             GameObject defaultRespawnObj = new GameObject("DefaultRespawnPoint");
             respawnPoint = defaultRespawnObj.transform;
-            respawnPoint.position = Vector3.zero;
+            respawnPoint.position = new Vector3(-3.8243f,-0.572f,0.05456218f);
         }
 
         // IMPORTANT: Call the spawn routine here to spawn the player when the scene loads
