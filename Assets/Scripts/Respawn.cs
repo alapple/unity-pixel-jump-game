@@ -7,11 +7,10 @@ public class Respawn : MonoBehaviour
 
     [Header("Respawn Settings")]
     public Transform respawnPoint; 
-    public float respawnDelay = 0f; // Make this 0 for immediate spawn on scene load
-                                    // or keep it for a short delay after scene load
+    public float respawnDelay = 0f; 
     public GameObject playerPrefab; 
 
-    private GameObject currentPlayerInstance;
+    private GameObject _currentPlayerInstance;
 
     private void Awake()
     {
@@ -53,9 +52,9 @@ public class Respawn : MonoBehaviour
     public void RespawnPlayer()
     {
         // This method can be called later for in-game respawns (e.g., after player dies)
-        if (currentPlayerInstance != null)
+        if (_currentPlayerInstance != null)
         {
-            Destroy(currentPlayerInstance);
+            Destroy(_currentPlayerInstance);
         }
         StartCoroutine(RespawnRoutine(respawnDelay));
     }
@@ -79,14 +78,18 @@ public class Respawn : MonoBehaviour
 
     private void SpawnPlayer()
     {
-        if (playerPrefab == null || respawnPoint == null)
+        if (!playerPrefab || !respawnPoint)
         {
             Debug.LogError("Player Prefab or Respawn Point is null! Cannot spawn player.", this);
             return;
         }
+
+        if (!_currentPlayerInstance && !playerPrefab)
+        {
+            _currentPlayerInstance = Instantiate(playerPrefab, respawnPoint.position, respawnPoint.rotation);
+            _currentPlayerInstance.name = "Player (Active)";
+        }
         
-        currentPlayerInstance = Instantiate(playerPrefab, respawnPoint.position, respawnPoint.rotation);
-        currentPlayerInstance.name = "Player (Active)";
     }
 
     private void OnDestroy()

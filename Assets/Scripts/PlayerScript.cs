@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    private static readonly int IsWalking = Animator.StringToHash("isWalking");
     public float speed = 30f;
     public Rigidbody2D body;
     public float jumpHeight = 6f;
@@ -31,12 +32,12 @@ public class PlayerScript : MonoBehaviour
         float direction = _controls.player.move.ReadValue<float>(); // A: -1; D: 1; 0: not moving
         if (direction != 0)
         {
-            transform.position += new Vector3(direction, 0, 0) * Time.fixedDeltaTime * speed;
-            animator.SetBool("isWalking", true);
+            transform.position += new Vector3(direction, 0, 0) * (Time.fixedDeltaTime * speed);
+            animator.SetBool(IsWalking, true);
         }
         else
         {
-            animator.SetBool("isWalking", false);
+            animator.SetBool(IsWalking, false);
         }
     }
 
