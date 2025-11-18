@@ -27,11 +27,12 @@ public class LoadingScript : MonoBehaviour
 
     IEnumerator LoadAsyncScene()
     {
-        _asyncOperation =  SceneManager.LoadSceneAsync("Main", LoadSceneMode.Single);
+        _asyncOperation =  SceneManager.LoadSceneAsync("Main");
         _asyncOperation.allowSceneActivation = false;
 
         while (!_asyncOperation.isDone)
         {
+            loadingBar.value = _asyncOperation.progress;
             print(_asyncOperation.progress);
             if (_asyncOperation.progress >= 0.9f)
             {
@@ -45,11 +46,6 @@ public class LoadingScript : MonoBehaviour
 
     private void Update()
     {
-        if (!_loadingDone)
-        {
-            loadingBar.value = _asyncOperation.progress * 10;
-        }
-        
         transform.eulerAngles += new Vector3(0,0, Time.deltaTime * spinSpeed);
     }
 

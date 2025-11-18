@@ -6,14 +6,17 @@ using UnityEngine.UI;
 public class Play : MonoBehaviour
 {
     private Button _playButton;
+    AsyncOperation _asyncOperation;
     void Start()
     {
         _playButton = GetComponent<Button>();
         _playButton.onClick.AddListener(OnButtonClick);
+         _asyncOperation = SceneManager.LoadSceneAsync("LoadingScreen");
+         _asyncOperation.allowSceneActivation = false;
     }
 
     private void OnButtonClick()
     {
-        SceneManager.LoadScene("LoadingScreen",  LoadSceneMode.Single);
+        _asyncOperation.allowSceneActivation = true;
     }
 }
