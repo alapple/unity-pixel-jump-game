@@ -14,6 +14,6 @@ public class Play : MonoBehaviour
 
     private void OnButtonClick()
     {
-        SceneManager.LoadScene("Main",  LoadSceneMode.Single);
+        SceneManager.LoadScene("LoadingScreen",  LoadSceneMode.Single);
     }
 }
