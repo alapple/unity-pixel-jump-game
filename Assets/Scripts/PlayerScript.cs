@@ -13,7 +13,7 @@ public class PlayerScript : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealth;
 
-    [SerializeField] 
+    [SerializeField]
     private Animator animator;
     
     void Awake()
