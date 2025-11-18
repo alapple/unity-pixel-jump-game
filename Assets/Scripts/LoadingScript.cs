@@ -1,13 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using NUnit.Framework;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using Random = System.Random;
+using Random = UnityEngine.Random;
 
 public class LoadingScript : MonoBehaviour
 {
@@ -15,9 +13,8 @@ public class LoadingScript : MonoBehaviour
     bool _loadingDone  = false;
     public Slider loadingBar;
     public TextMeshProUGUI loadingTip;
-    public Image spinner;
-    public float spinSpeed;
 
+    
     void Start()
     {
         loadingBar.value = 0;
@@ -27,16 +24,22 @@ public class LoadingScript : MonoBehaviour
 
     IEnumerator LoadAsyncScene()
     {
+        yield return new WaitForSeconds(2);
+        while (loadingBar.value < 0.7)
+        {
+            loadingBar.value += Random.Range(0.1f, 0.3f);
+            yield return new WaitForSeconds(Random.Range(0f, 2f));
+        }
         _asyncOperation =  SceneManager.LoadSceneAsync("Main");
         _asyncOperation.allowSceneActivation = false;
 
         while (!_asyncOperation.isDone)
         {
             loadingBar.value = _asyncOperation.progress;
-            print(_asyncOperation.progress);
             if (_asyncOperation.progress >= 0.9f)
             {
                 _asyncOperation.allowSceneActivation = true;
+                loadingBar.value = 1;
             }
             yield return null;
         }
@@ -44,21 +47,15 @@ public class LoadingScript : MonoBehaviour
         _loadingDone = _asyncOperation.isDone;
     }
 
-    private void Update()
-    {
-        transform.eulerAngles += new Vector3(0,0, Time.deltaTime * spinSpeed);
-    }
-
     void DisplayLoadingTip()
     {
         List<String> tips = new List<String>();
-        Random rnd = new Random();
         tips.Add("State Fact: CEOs double their mistakes when profits drop.");
         tips.Add("Tip: The Hammer is slow, comrade, but it hits harder than a sudden market crash.");
         tips.Add("Announcement: Gravity is a capitalist construct. Defy it by launching enemies with the Hammer.");
         tips.Add("Remember: There is no 'I' in Team, but there is a 'Me' in Hammer.");
         tips.Add("Pause the game if you must. Even the revolution needs a coffee break.");
         tips.Add("Checkpoints are distributed equally among the levels.");
-        loadingTip.text = $"{tips[rnd.Next(0, tips.Count)]}";
+        loadingTip.text = $"{tips[Random.Range(0, tips.Count)]}";
     }
 }
