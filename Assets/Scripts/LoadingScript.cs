@@ -18,20 +18,20 @@ public class LoadingScript : MonoBehaviour
     void Start()
     {
         loadingBar.value = 0;
-        StartCoroutine(LoadAsyncScene());
+        StartCoroutine(LoadAsyncScene("Main"));
         DisplayLoadingTip();
     }
 
-    IEnumerator LoadAsyncScene()
+    IEnumerator LoadAsyncScene(string SceneNameame)
     {
+        _asyncOperation =  SceneManager.LoadSceneAsync(SceneNameame);
+        _asyncOperation.allowSceneActivation = false;
         yield return new WaitForSeconds(2);
         while (loadingBar.value < 0.7)
         {
             loadingBar.value += Random.Range(0.1f, 0.3f);
             yield return new WaitForSeconds(Random.Range(0f, 2f));
         }
-        _asyncOperation =  SceneManager.LoadSceneAsync("Main");
-        _asyncOperation.allowSceneActivation = false;
 
         while (!_asyncOperation.isDone)
         {
@@ -49,13 +49,13 @@ public class LoadingScript : MonoBehaviour
 
     void DisplayLoadingTip()
     {
-        List<String> tips = new List<String>();
-        tips.Add("State Fact: CEOs double their mistakes when profits drop.");
-        tips.Add("Tip: The Hammer is slow, comrade, but it hits harder than a sudden market crash.");
-        tips.Add("Announcement: Gravity is a capitalist construct. Defy it by launching enemies with the Hammer.");
-        tips.Add("Remember: There is no 'I' in Team, but there is a 'Me' in Hammer.");
-        tips.Add("Pause the game if you must. Even the revolution needs a coffee break.");
-        tips.Add("Checkpoints are distributed equally among the levels.");
-        loadingTip.text = $"{tips[Random.Range(0, tips.Count)]}";
+            List<String> tips = new List<String>();
+            tips.Add("State Fact: CEOs double their mistakes when profits drop.");
+            tips.Add("Tip: The Hammer is slow, comrade, but it hits harder than a sudden market crash.");
+            tips.Add("Announcement: Gravity is a capitalist construct. Defy it by launching enemies with the Hammer.");
+            tips.Add("Remember: There is no 'I' in Team, but there is a 'Me' in Hammer.");
+            tips.Add("Pause the game if you must. Even the revolution needs a coffee break.");
+            tips.Add("Checkpoints are distributed equally among the levels.");
+            loadingTip.text = $"{tips[Random.Range(0, tips.Count)]}";
     }
 }

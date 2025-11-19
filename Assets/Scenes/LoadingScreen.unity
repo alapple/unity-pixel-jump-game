@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 22268469}
   - component: {fileID: 22268468}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -969,7 +969,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   loadingBar: {fileID: 618109452}
-  loadingTip: {fileID: 0}
+  loadingTip: {fileID: 20132672}
 --- !u!4 &702629815
 Transform:
   m_ObjectHideFlags: 0
