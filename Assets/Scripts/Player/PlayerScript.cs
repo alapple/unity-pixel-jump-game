@@ -14,8 +14,6 @@ namespace Player
         public LayerMask groundLayer;
         public int maxHealth = 100;
         public int currentHealth;
-
-        // Fires whenever currentHealth changes. Args: (currentHealth, maxHealth)
         public System.Action<int, int> OnHealthChanged;
 
         [SerializeField]
@@ -42,6 +40,14 @@ namespace Player
             {
                 transform.position += new Vector3(direction, 0, 0) * (Time.fixedDeltaTime * speed);
                 animator.SetBool(IsWalking, true);
+                if (direction > 0)
+                {
+                    transform.localScale = new Vector3(5, 5, 1); // Normal
+                }
+                else if (direction < 0)
+                {
+                    transform.localScale = new Vector3(-5, 5, 1); // Alles gespiegelt
+                }
             }
             else
             {
@@ -64,7 +70,7 @@ namespace Player
             Vector2 position = transform.position;
             Vector2 direction = Vector2.down;
             float distance = 0.5f; 
-            Vector2 boxSize = new Vector2(0.13f, 0.5f); 
+            Vector2 boxSize = new Vector2(0.13f, 2f); 
     	
             RaycastHit2D hit = Physics2D.BoxCast(position, boxSize, 0f, direction, distance, groundLayer);
         
