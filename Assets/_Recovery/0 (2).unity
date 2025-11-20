@@ -4268,7 +4268,7 @@ GameObject:
   - component: {fileID: 1364070503}
   m_Layer: 0
   m_Name: Enemy-Amerrikan
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4367,7 +4367,7 @@ Transform:
   m_GameObject: {fileID: 1364070495}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.92, y: 1.07, z: 0}
+  m_LocalPosition: {x: -4.71, y: -0.977, z: 0}
   m_LocalScale: {x: 5.6581, y: 5.6581, z: 5.6581}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4467,18 +4467,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9407b50596dcfccfd8e3768094b93a80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  maxHealth: 2
-  speed: 4
-  jumpForce: 5
+  maxHealth: 0
+  speed: 0
+  jumpForce: 0
   rb: {fileID: 1364070498}
   currantHealth: 0
-  standardAttackDamage: 0.5
-  specialAttackDamage: 1
-  specialAttackKnockback: 2
+  standardAttackDamage: 0
+  specialAttackDamage: 0
+  specialAttackKnockback: 0
   groundLayer:
     serializedVersion: 2
-    m_Bits: 8
-  body: {fileID: 1364070498}
+    m_Bits: 0
 --- !u!58 &1364070503
 CircleCollider2D:
   m_ObjectHideFlags: 0
