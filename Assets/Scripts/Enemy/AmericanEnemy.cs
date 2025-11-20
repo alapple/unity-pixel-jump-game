@@ -43,6 +43,27 @@ public class AmericanEnemy : MonoBehaviour
         
         return hit.collider != null;   
     }
+
+    bool StandingAtBlock()
+    {
+        Vector2 position = transform.position;
+        Vector2 directionRight = Vector2.right;
+        Vector2 directionLeft = Vector2.left;
+        float distance = 1f; 
+        Vector2 boxSize = new Vector2(0.13f, 0.5f); 
+    	
+        RaycastHit2D hitLeft = Physics2D.BoxCast(position, boxSize, 0f, directionLeft, distance, groundLayer);
+        
+        Color debugColorLeft = hitLeft.collider != null ? Color.green : Color.red;
+        Debug.DrawRay(position, directionLeft * distance, debugColorLeft, 0.5f);
+        
+        RaycastHit2D hitRight = Physics2D.BoxCast(position, boxSize, 0f, directionRight, distance, groundLayer);
+        
+        Color debugColorRight = hitRight.collider != null ? Color.green : Color.red;
+        Debug.DrawRay(position, directionRight * distance, debugColorRight, 0.5f);
+        
+        return hitLeft.collider != null;
+    }
     
     public void ChangeHealth(int amount)
     {
@@ -65,9 +86,9 @@ public class AmericanEnemy : MonoBehaviour
             _moveX = _player.transform.position.x - _enemy.transform.position.x;
             _moveY = _player.transform.position.y - _enemy.transform.position.y;
             print("moveX: " + _moveX + "moveY: " + _moveY);
-            if (IsGrounded())
+            if (IsGrounded() && StandingAtBlock())
             {
-                
+                print("jump");
             }
             body.AddForce(new Vector2(_moveX, 0) * (Time.fixedDeltaTime * speed), ForceMode2D.Impulse);
         }
