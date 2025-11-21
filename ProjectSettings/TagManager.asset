@@ -46,5 +46,26 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Sky
+    uniqueID: 3656204159
+    locked: 0
+  - name: Stars
+    uniqueID: 3251307511
+    locked: 0
+  - name: Clouds1
+    uniqueID: 3770821995
+    locked: 0
+  - name: Clouds2
+    uniqueID: 1940796219
+    locked: 0
+  - name: Clouds3
+    uniqueID: 4129674615
+    locked: 0
+  - name: Clouds4
+    uniqueID: 1292858153
+    locked: 0
+  - name: Game
+    uniqueID: 2142250627
+    locked: 0
   m_RenderingLayers:
   - Default
