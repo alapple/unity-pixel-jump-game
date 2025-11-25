@@ -1,35 +1,46 @@
-using System;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AmericanEnemy : MonoBehaviour
 {
     public int maxHealth;
     public float speed;
     public float jumpForce;
-    public Rigidbody2D rb;
-    public float currantHealth;
+    private float _currantHealth;
     public float standardAttackDamage;
     public float specialAttackDamage;
     public float specialAttackKnockback;
     public LayerMask groundLayer;
-    private GameObject _enemy;
-    private GameObject _player = null;
-    private float _moveX;
-    private float _moveY;
     public Rigidbody2D body;
+    public float jumpCooldown;
+    private float _nextJumpTime;
+
+    [SerializeField] private Transform target;
+    
+    NavMeshAgent _agent;
     
     public System.Action<float, float> OnHealthChanged;
 
     private void Awake()
     {
-        currantHealth = maxHealth;
+        _currantHealth = maxHealth;
     }
 
-    private void Start()
+    void Start()
     {
-        _enemy = GameObject.FindWithTag("Enemy");
+        _agent =  GetComponent<NavMeshAgent>();
+        _agent.updateRotation = false;
+        _agent.updateUpAxis = true;
+        _nextJumpTime = Time.time;
     }
-    
+
+    private void Update()
+    {
+        _agent.SetDestination(target.position);
+        Jump();
+        
+    }
+
     bool IsGrounded() {
         Vector2 position = transform.position;
         Vector2 direction = Vector2.down;
@@ -50,7 +61,7 @@ public class AmericanEnemy : MonoBehaviour
         Vector2 directionRight = Vector2.right;
         Vector2 directionLeft = Vector2.left;
         float distance = 1f; 
-        Vector2 boxSize = new Vector2(0.13f, 0.5f); 
+        Vector2 boxSize = new Vector2(1f, 1f); 
     	
         RaycastHit2D hitLeft = Physics2D.BoxCast(position, boxSize, 0f, directionLeft, distance, groundLayer);
         
@@ -61,36 +72,36 @@ public class AmericanEnemy : MonoBehaviour
         
         Color debugColorRight = hitRight.collider != null ? Color.green : Color.red;
         Debug.DrawRay(position, directionRight * distance, debugColorRight, 0.5f);
-        
-        return hitLeft.collider != null;
+
+        if ((hitLeft.collider != null || hitRight.collider != null) && IsGrounded())
+        {
+         return true;   
+        }
+        return false;
+    }
+
+    void Jump()
+    {
+        if (StandingAtBlock())
+        {
+           if (Time.time >= _nextJumpTime)
+           {
+                Debug.LogWarning("jumping");
+           //     body.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+                _agent.Move(Vector2.up * jumpForce);
+                _nextJumpTime = Time.time + jumpCooldown;
+           }
+        }
     }
     
     public void ChangeHealth(int amount)
     {
-        currantHealth = Mathf.Clamp(currantHealth + amount, 0, maxHealth);
+        _currantHealth = Mathf.Clamp(_currantHealth + amount, 0, maxHealth);
         // Notify listeners whenever health changes
-        OnHealthChanged?.Invoke(currantHealth, maxHealth);
-        if (currantHealth == 0)
+        OnHealthChanged?.Invoke(_currantHealth, maxHealth);
+        if (_currantHealth == 0)
         {
-            Destroy(_enemy);
-        }
-    }
-
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            _player = GameObject.FindWithTag("Player");
-            print( "x: "+ _player.transform.position.x + "y: " + _player.transform.position.y);
-            
-            _moveX = _player.transform.position.x - _enemy.transform.position.x;
-            _moveY = _player.transform.position.y - _enemy.transform.position.y;
-            print("moveX: " + _moveX + "moveY: " + _moveY);
-            if (IsGrounded() && StandingAtBlock())
-            {
-                print("jump");
-            }
-            body.AddForce(new Vector2(_moveX, 0) * (Time.fixedDeltaTime * speed), ForceMode2D.Impulse);
+           
         }
     }
 }
