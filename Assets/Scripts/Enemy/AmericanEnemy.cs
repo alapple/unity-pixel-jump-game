@@ -14,10 +14,6 @@ public class AmericanEnemy : MonoBehaviour
     public Rigidbody2D body;
     public float jumpCooldown;
     private float _nextJumpTime;
-
-    [SerializeField] private Transform target;
-    
-    NavMeshAgent _agent;
     
     public System.Action<float, float> OnHealthChanged;
 
@@ -28,16 +24,12 @@ public class AmericanEnemy : MonoBehaviour
 
     void Start()
     {
-        _agent =  GetComponent<NavMeshAgent>();
-        _agent.updateRotation = false;
-        _agent.updateUpAxis = true;
         _nextJumpTime = Time.time;
     }
 
     private void Update()
     {
-        _agent.SetDestination(target.position);
-        Jump();
+       // Jump();
         
     }
 
@@ -88,7 +80,6 @@ public class AmericanEnemy : MonoBehaviour
            {
                 Debug.LogWarning("jumping");
            //     body.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
-                _agent.Move(Vector2.up * jumpForce);
                 _nextJumpTime = Time.time + jumpCooldown;
            }
         }
@@ -101,7 +92,6 @@ public class AmericanEnemy : MonoBehaviour
         OnHealthChanged?.Invoke(_currantHealth, maxHealth);
         if (_currantHealth == 0)
         {
-           
         }
     }
 }
