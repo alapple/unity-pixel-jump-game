@@ -336,7 +336,6 @@ GameObject:
   - component: {fileID: 251198962}
   - component: {fileID: 251198964}
   - component: {fileID: 251198968}
-  - component: {fileID: 251198967}
   m_Layer: 3
   m_Name: Tilemap
   m_TagString: ground
@@ -4459,221 +4458,6 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
---- !u!66 &251198967
-CompositeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 251198960}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
-  m_GenerationType: 0
-  m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 251198964}
-    m_ColliderPaths:
-    - - X: 160000000
-        Y: 0
-      - X: 150000000
-        Y: 0
-      - X: 150000000
-        Y: 10000000
-      - X: 140000000
-        Y: 10000000
-      - X: 140000000
-        Y: 20000000
-      - X: 130000000
-        Y: 20000000
-      - X: 130000000
-        Y: 30000000
-      - X: 90000000
-        Y: 30000000
-      - X: 90000000
-        Y: 20000000
-      - X: 80000000
-        Y: 20000000
-      - X: 80000000
-        Y: 10000000
-      - X: 60000000
-        Y: 10000000
-      - X: 60000000
-        Y: -10000000
-      - X: 30000000
-        Y: -10000000
-      - X: 30000000
-        Y: 0
-      - X: 20000000
-        Y: 0
-      - X: 20000000
-        Y: 10000000
-      - X: 10000000
-        Y: 10000000
-      - X: 10000000
-        Y: 20000000
-      - X: -10000000
-        Y: 20000000
-      - X: -10000000
-        Y: 10000000
-      - X: -20000000
-        Y: 10000000
-      - X: -20000000
-        Y: 0
-      - X: -30000000
-        Y: 0
-      - X: -30000000
-        Y: -10000000
-      - X: -60000000
-        Y: -10000000
-      - X: -60000000
-        Y: 0
-      - X: -70000000
-        Y: 0
-      - X: -70000000
-        Y: 10000000
-      - X: -90000000
-        Y: 10000000
-      - X: -90000000
-        Y: 0
-      - X: -100000000
-        Y: 0
-      - X: -100000000
-        Y: -10000000
-      - X: -110000000
-        Y: -10000000
-      - X: -110000000
-        Y: -20000000
-      - X: -250000000
-        Y: -20000000
-      - X: -250000000
-        Y: -90000000
-      - X: 160000000
-        Y: -90000000
-    - - X: 280000000
-        Y: 30000000
-      - X: 260000000
-        Y: 30000000
-      - X: 260000000
-        Y: 20000000
-      - X: 250000000
-        Y: 20000000
-      - X: 250000000
-        Y: 10000000
-      - X: 240000000
-        Y: 10000000
-      - X: 240000000
-        Y: 0
-      - X: 220000000
-        Y: 0
-      - X: 220000000
-        Y: -20000000
-      - X: 280000000
-        Y: -20000000
-    - - X: 200000000
-        Y: 1250000
-      - X: 200000000
-        Y: 625000
-      - X: 207500000
-        Y: 625000
-      - X: 210000000
-        Y: 1250000
-      - X: 210000000
-        Y: 10000000
-      - X: 180000000
-        Y: 10000000
-      - X: 180000000
-        Y: 625000
-      - X: 199375008
-        Y: 625000
-  m_CompositePaths:
-    m_Paths:
-    - - {x: 27.999971, y: -2}
-      - {x: 27.999971, y: 3}
-      - {x: 26, y: 2.999971}
-      - {x: 25.999971, y: 2}
-      - {x: 25, y: 1.9999708}
-      - {x: 24.999971, y: 1}
-      - {x: 24, y: 0.99997073}
-      - {x: 23.999971, y: 0}
-      - {x: 22, y: -0.000029300001}
-      - {x: 22.000029, y: -2}
-    - - {x: 15.999971, y: -9}
-      - {x: 15.999971, y: 0}
-      - {x: 15, y: 0.0000294}
-      - {x: 14.999971, y: 1}
-      - {x: 14, y: 1.0000294}
-      - {x: 13.999971, y: 2}
-      - {x: 13, y: 2.0000293}
-      - {x: 12.99997, y: 3}
-      - {x: 9, y: 2.999971}
-      - {x: 8.99997, y: 2}
-      - {x: 8, y: 1.9999708}
-      - {x: 7.9999704, y: 1}
-      - {x: 6, y: 0.99997073}
-      - {x: 5.9999704, y: -1}
-      - {x: 3, y: -0.9999706}
-      - {x: 2.999971, y: 0}
-      - {x: 2, y: 0.0000294}
-      - {x: 1.9999708, y: 1}
-      - {x: 1, y: 1.0000294}
-      - {x: 0.99997073, y: 2}
-      - {x: -1, y: 1.9999708}
-      - {x: -1.0000294, y: 1}
-      - {x: -2, y: 0.99997073}
-      - {x: -2.0000293, y: 0}
-      - {x: -3, y: -0.000029300001}
-      - {x: -3.0000293, y: -1}
-      - {x: -6, y: -0.9999706}
-      - {x: -6.000029, y: 0}
-      - {x: -7, y: 0.0000294}
-      - {x: -7.0000296, y: 1}
-      - {x: -9, y: 0.99997073}
-      - {x: -9.00003, y: 0}
-      - {x: -10, y: -0.000029300001}
-      - {x: -10.00003, y: -1}
-      - {x: -11, y: -1.0000293}
-      - {x: -11.00003, y: -2}
-      - {x: -25, y: -2.0000293}
-      - {x: -24.999971, y: -9}
-    - - {x: 19.93749, y: 0.0625}
-      - {x: 20, y: 0.124912605}
-      - {x: 20.000029, y: 0.0625}
-      - {x: 20.750004, y: 0.0625007}
-      - {x: 21, y: 0.1250219}
-      - {x: 20.999971, y: 1}
-      - {x: 18, y: 0.99997073}
-      - {x: 18.000029, y: 0.0625}
-  m_VertexDistance: 0.0005
-  m_OffsetDistance: 0.00005
-  m_UseDelaunayMesh: 0
-  m_CompositeGameObject: {fileID: 251198960}
 --- !u!50 &251198968
 Rigidbody2D:
   serializedVersion: 5
@@ -4788,7 +4572,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.38, y: -1.04, z: -9.945437}
+  m_LocalPosition: {x: -14.5, y: -1.08, z: -9.945437}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5389,7 +5173,7 @@ Transform:
   m_GameObject: {fileID: 852997447}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.38, y: -1.04, z: 0.054562178}
+  m_LocalPosition: {x: -14.5, y: -1.08, z: 0.054562178}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5565,7 +5349,7 @@ Transform:
   m_GameObject: {fileID: 897962879}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.38, y: -1.04, z: -9.945437}
+  m_LocalPosition: {x: -14.5, y: -1.08, z: -9.945437}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6428,6 +6212,7 @@ GameObject:
   - component: {fileID: 1364070502}
   - component: {fileID: 1364070503}
   - component: {fileID: 1364070504}
+  - component: {fileID: 1364070505}
   m_Layer: 0
   m_Name: Enemy-Amerrikan
   m_TagString: Enemy
@@ -6499,7 +6284,7 @@ Transform:
   m_GameObject: {fileID: 1364070495}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.53, y: -1.52, z: 0}
+  m_LocalPosition: {x: -20.583, y: -1.522, z: 0}
   m_LocalScale: {x: 5.6581, y: 5.5255327, z: 5.6581}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6594,7 +6379,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1364070495}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9407b50596dcfccfd8e3768094b93a80, type: 3}
   m_Name: 
@@ -6617,7 +6402,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1364070495}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -6673,6 +6458,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1364070505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364070495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65470efb3f47734e89682b244e1bfa58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  speed: 0
+  jumpForce: 0
 --- !u!1 &1374732999
 GameObject:
   m_ObjectHideFlags: 0
@@ -6935,8 +6735,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1580724249}
-  - component: {fileID: 1580724251}
   - component: {fileID: 1580724250}
+  - component: {fileID: 1580724251}
   m_Layer: 0
   m_Name: A*
   m_TagString: Untagged
@@ -6953,7 +6753,7 @@ Transform:
   m_GameObject: {fileID: 1580724247}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -27, y: -11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6968,9 +6768,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1580724247}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 410037539a623df4aa8532b47b11393e, type: 3}
+  m_Script: {fileID: 11500000, guid: ff85aa63c42d44708baf95ba6c18c13e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
+  m_EditorClassIdentifier: 
+  unwalkableMask:
+    serializedVersion: 2
+    m_Bits: 72
+  gridWorldSize: {x: 60, y: 20}
+  nodeRadius: 0.5
+  displayGridGizmos: 1
+  displayCircleGizmos: 0
 --- !u!114 &1580724251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6980,9 +6787,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1580724247}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ab4c9a62d25174698a6fb0cf0f9e243, type: 3}
+  m_Script: {fileID: 11500000, guid: b1c0db9b63eb42239e124b65e55a2b77, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
+  m_EditorClassIdentifier: 
+  seeker: {fileID: 1364070499}
+  target: {fileID: 852997451}
+  americanEnemy: {fileID: 1364070502}
 --- !u!1 &1699954021
 GameObject:
   m_ObjectHideFlags: 0
@@ -7475,7 +7285,7 @@ GameObject:
   - component: {fileID: 1860800969}
   - component: {fileID: 1860800968}
   - component: {fileID: 1860800971}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tilemap-Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}

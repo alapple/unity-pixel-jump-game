@@ -5,7 +5,7 @@ public class AmericanEnemy : MonoBehaviour
 {
     public int maxHealth;
     public float speed;
-    public float jumpForce;
+    public int jumpForce;
     private float _currantHealth;
     public float standardAttackDamage;
     public float specialAttackDamage;

@@ -1,0 +1,138 @@
+using UnityEngine;
+using System.Collections.Generic;
+
+public class Grid : MonoBehaviour
+{
+    public LayerMask unwalkableMask;
+    public Vector2 gridWorldSize; // The total size (e.g., 20x10)
+    public float nodeRadius;      // Usually 0.5
+    Node[,] grid;
+    public List<Node> path;
+
+    float nodeDiameter;
+    int gridSizeX, gridSizeY;
+
+    // Helper to see the gizmos in inspector
+    public bool displayGridGizmos = true;
+    public bool displayCircleGizmos = true;
+
+    void Awake()
+    {
+        nodeDiameter = nodeRadius * 2;
+        gridSizeX = Mathf.RoundToInt(gridWorldSize.x / nodeDiameter);
+        gridSizeY = Mathf.RoundToInt(gridWorldSize.y / nodeDiameter);
+        CreateGrid();
+    }
+
+    void CreateGrid()
+    {
+        grid = new Node[gridSizeX, gridSizeY];
+        
+        // FIX: The Bottom Left is now simply the object's position.
+        // We do NOT subtract half the size anymore.
+        Vector3 worldBottomLeft = transform.position;
+
+        for (int x = 0; x < gridSizeX; x++)
+        {
+            for (int y = 0; y < gridSizeY; y++)
+            {
+                // Calculate center of each node starting from the anchor
+                Vector3 worldPoint = worldBottomLeft 
+                                     + Vector3.right * (x * nodeDiameter + nodeRadius) 
+                                     + Vector3.up * (y * nodeDiameter + nodeRadius);
+                                     
+                bool wall = Physics2D.OverlapCircle(worldPoint, nodeRadius - 0.1f, unwalkableMask);
+                grid[x, y] = new Node(wall, worldPoint, x, y);
+            }
+        }
+    }
+
+    public Node NodeFromWorldPoint(Vector3 worldPosition)
+    {
+        // FIX: Math is now relative to the transform.position (Anchor)
+        float percentX = (worldPosition.x - transform.position.x) / gridWorldSize.x;
+        float percentY = (worldPosition.y - transform.position.y) / gridWorldSize.y;
+        
+        percentX = Mathf.Clamp01(percentX);
+        percentY = Mathf.Clamp01(percentY);
+
+        int x = Mathf.RoundToInt((gridSizeX - 1) * percentX);
+        int y = Mathf.RoundToInt((gridSizeY - 1) * percentY);
+        return grid[x, y];
+    }
+    public List<Node> GetNeighbors(Node node, int maxJumpHeight)
+    {
+        List<Node> neighbors = new List<Node>();
+        bool isGrounded = false;
+
+        if (node.gridY > 0)
+        {
+            Node nodeBelow = grid[node.gridX, node.gridY - 1];
+            if (nodeBelow.isWall)
+            {
+                isGrounded = true;
+            }
+        }
+        for (int x = -1; x <= 1; x++) {
+            for (int y = -1; y <= 1; y++) {
+                if (x == 0 && y == 0) continue;
+                int checkX = node.gridX + x;
+                int checkY = node.gridY + y;
+
+                if (checkX >= 0 && checkX < gridSizeX && checkY >= 0 && checkY < gridSizeY) {
+                    Node neighbor = grid[checkX, checkY];
+                    if (neighbor.isWall) continue;
+
+                    if (y > 0)
+                    {
+                        if (!isGrounded)
+                        {
+                            continue;
+                        }
+                    }
+                    
+                    neighbors.Add(neighbor);
+                }
+            }
+        }
+        return neighbors;
+    }
+
+    void OnDrawGizmos()
+    {
+        // Draw the outline starting from the anchor
+        Gizmos.color = Color.yellow;
+        // The center of the drawn cube needs to be offset by half size to match the anchor logic
+        Vector3 center = transform.position + new Vector3(gridWorldSize.x / 2, gridWorldSize.y / 2, 0);
+        Gizmos.DrawWireCube(center, new Vector3(gridWorldSize.x, gridWorldSize.y, 1));
+
+        if (grid != null && displayGridGizmos)
+        {
+            foreach (Node n in grid)
+            {
+                Gizmos.color = (n.isWall) ? new Color(1,0,0,0.5f) : new Color(1,1,1,0.5f);
+                Gizmos.DrawCube(n.worldPosition, Vector3.one * (nodeDiameter - .1f));
+
+                if (displayCircleGizmos)
+                {
+                    Gizmos.color = Color.cyan;
+                    Gizmos.DrawWireSphere(n.worldPosition, nodeRadius - 0.1f);
+                }
+            }
+        }
+
+        if (path != null)
+        {
+            Gizmos.color = Color.green;
+            for (int i = 0; i < path.Count - 1; i++)
+            {
+                Node currentNode = path[i];
+                Node nextNode = path[i + 1];
+                
+                Gizmos.DrawLine(currentNode.worldPosition, nextNode.worldPosition);
+                
+                Gizmos.DrawSphere(currentNode.worldPosition, nodeRadius - 0.1f);
+            }
+        }
+    }
+}
