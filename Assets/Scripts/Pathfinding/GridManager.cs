@@ -69,57 +69,48 @@ public class Grid : MonoBehaviour
     public List<Node> GetNeighbors(Node node, int maxJumpHeight)
     {
         List<Node> neighbors = new List<Node>();
-        bool isGrounded = false;
+        bool isGrounded = IsUnitGrounded(node.worldPosition);
 
-        if (node.gridY > 0)
+        for (int x = -1; x <= 1; x++)
         {
-            Node nodeBelow = grid[node.gridX, node.gridY - 1];
-            if (nodeBelow.isWall)
+            for (int y = -1; y <= 1; y++)
             {
-                isGrounded = true;
-            }
-        }
-        for (int x = -1; x <= 1; x++) {
-            for (int y = -1; y <= 1; y++) {
                 if (x == 0 && y == 0) continue;
+
                 int checkX = node.gridX + x;
                 int checkY = node.gridY + y;
 
-                if (checkX >= 0 && checkX < gridSizeX && checkY >= 0 && checkY < gridSizeY) {
+                if (checkX >= 0 && checkX < gridSizeX && checkY >= 0 && checkY < gridSizeY)
+                {
                     Node neighbor = grid[checkX, checkY];
+
                     if (neighbor.isWall) continue;
+                    
+                    if (y > 0 && !isGrounded) continue;
+                    
+                    bool isNeighborSafe = IsNodeSafe(neighbor);
 
-                    if (y > 0)
-                    {
-                        if (!isGrounded)
-                        {
-                            continue;
-                        }
-                    }
-
-                    if (isNodeSave(neighbor))
+                    if (isNeighborSafe)
                     {
                         neighbors.Add(neighbor);
                     }
                     else
                     {
-                        if (x != 0)
+                        if (isGrounded && y == 0) 
+                            continue;
+
+                        if (x != 0 && IsLandAhead(neighbor, x))
                         {
-                            if (IsLandAhead(neighbor, x))
-                            {
-                                neighbors.Add(neighbor);
-                            }
+                            neighbors.Add(neighbor);
                         }
                     }
-                    
-                    neighbors.Add(neighbor);
                 }
             }
         }
         return neighbors;
     }
 
-    bool isNodeSave(Node node)
+    bool IsNodeSafe(Node node)
     {
         if (node.isWall) return true;
 
@@ -155,7 +146,7 @@ public class Grid : MonoBehaviour
         return false;
     }
     
-    public bool isUnitGrounded(Vector3 unitWorldPosition)
+    public bool IsUnitGrounded(Vector3 unitWorldPosition)
     {
         Node currentNode = NodeFromWorldPoint(unitWorldPosition);
         
