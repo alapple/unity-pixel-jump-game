@@ -8,7 +8,6 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
-  importerVersion: 2
   textureImporterSettings:
     alphaSource: 1
     mipMapMode: 0
@@ -84,8 +83,6 @@ ScriptedImporter:
     generateAnimationClips: 1
     addSortingGroup: 1
     addShadowCasters: 0
-    generateIndividualEvents: 1
-    generateSpriteAtlas: 1
   asepriteImporterSettings:
     fileImportMode: 1
     importHiddenLayers: 0
@@ -99,8 +96,6 @@ ScriptedImporter:
     generateAnimationClips: 1
     addSortingGroup: 1
     addShadowCasters: 0
-    generateIndividualEvents: 1
-    generateSpriteAtlas: 1
   importFileNodeState: 1
   platformSettingsDirtyTick: 0
   textureAssetName: 
@@ -139,7 +134,7 @@ ScriptedImporter:
       y: 4
       width: 17
       height: 32
-    spriteID: 3e440a957a00efdafb22a493fb6f55f8
+    spriteID: b19e74dcfc1ad8c5f8c06328d9f4cb4a
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -149,15 +144,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
   spriteSheetImportData: []
-  tileSetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    uuid:
-      value0: 2161269325
-      value1: 0
-      value2: 0
-      value3: 0
-    guid: 0
+    guid: -969537175
     name: character-sprite-32x32-standing
     layerFlags: 0
     layerType: 0
@@ -171,15 +160,11 @@ ScriptedImporter:
         y: 0
         width: 17
         height: 32
-      spriteId: 3e440a957a00efdafb22a493fb6f55f8
+      spriteId: b19e74dcfc1ad8c5f8c06328d9f4cb4a
     linkedCells: []
-    tileCells: []
-    tileSetIndex: 0
     parentIndex: -1
-  tileSets: []
   platformSettings: []
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 32, y: 32}
-  previousTextureSize: {x: 32, y: 64}

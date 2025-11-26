@@ -8,7 +8,6 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
-  importerVersion: 2
   textureImporterSettings:
     alphaSource: 1
     mipMapMode: 0
@@ -84,8 +83,6 @@ ScriptedImporter:
     generateAnimationClips: 1
     addSortingGroup: 1
     addShadowCasters: 0
-    generateIndividualEvents: 1
-    generateSpriteAtlas: 1
   asepriteImporterSettings:
     fileImportMode: 1
     importHiddenLayers: 0
@@ -99,8 +96,6 @@ ScriptedImporter:
     generateAnimationClips: 1
     addSortingGroup: 1
     addShadowCasters: 0
-    generateIndividualEvents: 1
-    generateSpriteAtlas: 1
   importFileNodeState: 1
   platformSettingsDirtyTick: 0
   textureAssetName: 
@@ -127,7 +122,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Frame_0
+  - name: idle-animation_Frame_0
     originalName: 
     pivot: {x: 0.53846157, y: -0.3888889}
     alignment: 9
@@ -139,7 +134,7 @@ ScriptedImporter:
       y: 32
       width: 13
       height: 18
-    spriteID: f58160ee552070f449e61bb25887aca9
+    spriteID: c7d67959211173d80935ac06572605e6
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -148,7 +143,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 32}
-  - name: Frame_1
+  - name: idle-animation_Frame_1
     originalName: 
     pivot: {x: 0.53846157, y: -0.3888889}
     alignment: 9
@@ -160,7 +155,7 @@ ScriptedImporter:
       y: 32
       width: 13
       height: 18
-    spriteID: 9af7a624a26762e4abb3c7575eb207a3
+    spriteID: e4e12804dc828057fa3ac674d7222caa
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -169,7 +164,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 25, y: 32}
-  - name: Frame_2
+  - name: idle-animation_Frame_2
     originalName: 
     pivot: {x: 0.53846157, y: -0.3888889}
     alignment: 9
@@ -181,7 +176,7 @@ ScriptedImporter:
       y: 32
       width: 13
       height: 18
-    spriteID: 41a2f997dbf489a4181a0b40deeaba6f
+    spriteID: 50922eaf4d8389ec3bf8fccedd985a75
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -190,7 +185,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 46, y: 32}
-  - name: Frame_3
+  - name: idle-animation_Frame_3
     originalName: 
     pivot: {x: 0.53846157, y: -0.36842105}
     alignment: 9
@@ -202,7 +197,7 @@ ScriptedImporter:
       y: 4
       width: 13
       height: 19
-    spriteID: 53fff81a89953b04abbb3fc825f9f10c
+    spriteID: d2824ecbdf9f5b3bfa8459321a6c5085
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -211,7 +206,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 25, y: 4}
-  - name: Frame_4
+  - name: idle-animation_Frame_4
     originalName: 
     pivot: {x: 0.53846157, y: -0.35}
     alignment: 9
@@ -223,7 +218,7 @@ ScriptedImporter:
       y: 4
       width: 13
       height: 20
-    spriteID: 2f2461f55b80ad04ab2a9d81dc89c8f3
+    spriteID: cc82d35c78b5b59d3b6a4005c9252462
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -232,7 +227,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: Frame_5
+  - name: idle-animation_Frame_5
     originalName: 
     pivot: {x: 0.53846157, y: -0.36842105}
     alignment: 9
@@ -244,7 +239,7 @@ ScriptedImporter:
       y: 4
       width: 13
       height: 19
-    spriteID: 2204c0fa01b2c274182fc843a5e54999
+    spriteID: 0d5651a06708199098c87dc7d37e5384
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -254,21 +249,15 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 46, y: 4}
   spriteSheetImportData: []
-  tileSetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    uuid:
-      value0: 2917773799
-      value1: 0
-      value2: 0
-      value3: 0
-    guid: 0
+    guid: -1284971717
     name: idle-animation
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Frame_0
+    - name: idle-animation_Frame_0
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -276,8 +265,8 @@ ScriptedImporter:
         y: 7
         width: 13
         height: 18
-      spriteId: f58160ee552070f449e61bb25887aca9
-    - name: Frame_1
+      spriteId: c7d67959211173d80935ac06572605e6
+    - name: idle-animation_Frame_1
       frameIndex: 1
       additiveSortOrder: 0
       cellRect:
@@ -285,8 +274,8 @@ ScriptedImporter:
         y: 7
         width: 13
         height: 18
-      spriteId: 9af7a624a26762e4abb3c7575eb207a3
-    - name: Frame_2
+      spriteId: e4e12804dc828057fa3ac674d7222caa
+    - name: idle-animation_Frame_2
       frameIndex: 2
       additiveSortOrder: 0
       cellRect:
@@ -294,8 +283,8 @@ ScriptedImporter:
         y: 7
         width: 13
         height: 18
-      spriteId: 41a2f997dbf489a4181a0b40deeaba6f
-    - name: Frame_3
+      spriteId: 50922eaf4d8389ec3bf8fccedd985a75
+    - name: idle-animation_Frame_3
       frameIndex: 3
       additiveSortOrder: 0
       cellRect:
@@ -303,8 +292,8 @@ ScriptedImporter:
         y: 7
         width: 13
         height: 19
-      spriteId: 53fff81a89953b04abbb3fc825f9f10c
-    - name: Frame_4
+      spriteId: d2824ecbdf9f5b3bfa8459321a6c5085
+    - name: idle-animation_Frame_4
       frameIndex: 4
       additiveSortOrder: 0
       cellRect:
@@ -312,8 +301,8 @@ ScriptedImporter:
         y: 7
         width: 13
         height: 20
-      spriteId: 2f2461f55b80ad04ab2a9d81dc89c8f3
-    - name: Frame_5
+      spriteId: cc82d35c78b5b59d3b6a4005c9252462
+    - name: idle-animation_Frame_5
       frameIndex: 5
       additiveSortOrder: 0
       cellRect:
@@ -321,15 +310,11 @@ ScriptedImporter:
         y: 7
         width: 13
         height: 19
-      spriteId: 2204c0fa01b2c274182fc843a5e54999
+      spriteId: 0d5651a06708199098c87dc7d37e5384
     linkedCells: []
-    tileCells: []
-    tileSetIndex: 0
     parentIndex: -1
-  tileSets: []
   platformSettings: []
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 32, y: 32}
-  previousTextureSize: {x: 64, y: 64}

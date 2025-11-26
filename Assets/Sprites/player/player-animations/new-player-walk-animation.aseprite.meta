@@ -8,7 +8,6 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
-  importerVersion: 2
   textureImporterSettings:
     alphaSource: 1
     mipMapMode: 0
@@ -84,8 +83,6 @@ ScriptedImporter:
     generateAnimationClips: 1
     addSortingGroup: 1
     addShadowCasters: 0
-    generateIndividualEvents: 1
-    generateSpriteAtlas: 1
   asepriteImporterSettings:
     fileImportMode: 1
     importHiddenLayers: 0
@@ -99,8 +96,6 @@ ScriptedImporter:
     generateAnimationClips: 1
     addSortingGroup: 1
     addShadowCasters: 0
-    generateIndividualEvents: 1
-    generateSpriteAtlas: 1
   importFileNodeState: 1
   platformSettingsDirtyTick: 638992429794520860
   textureAssetName: 
@@ -127,10 +122,10 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Frame_0
+  - name: new-player-walk-animation_Frame_0
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.94444454, y: 0.45945945}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -139,7 +134,7 @@ ScriptedImporter:
       y: 74
       width: 18
       height: 37
-    spriteID: 77b8de8b9d44d9a78892c67484e9de44
+    spriteID: 84452eb826cfd910b8d415df7dd4303b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -148,10 +143,10 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 74}
-  - name: Frame_1
+  - name: new-player-walk-animation_Frame_1
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.8571429, y: 0.45945945}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -160,7 +155,7 @@ ScriptedImporter:
       y: 37
       width: 21
       height: 37
-    spriteID: 1931f8095d634a000ad70a62228b79e0
+    spriteID: bef0ada2e389a44c9aca403bbe220ca1
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -169,10 +164,10 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 37}
-  - name: Frame_2
+  - name: new-player-walk-animation_Frame_2
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.76, y: 0.45945945}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -181,7 +176,7 @@ ScriptedImporter:
       y: 0
       width: 25
       height: 37
-    spriteID: af13c66ec71af57ca8f8132e64d64d15
+    spriteID: f03df90ea4c24807797a376e8461fbdf
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -190,10 +185,10 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: Frame_3
+  - name: new-player-walk-animation_Frame_3
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.8333334, y: 0.45945945}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -202,7 +197,7 @@ ScriptedImporter:
       y: 0
       width: 18
       height: 37
-    spriteID: 76560b6dc8a6edce285edf2860611b07
+    spriteID: b55a6a3e9132112b3916129c963292cc
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -211,10 +206,10 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 25, y: 0}
-  - name: Frame_4
+  - name: new-player-walk-animation_Frame_4
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 1, y: 0.45945945}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -223,7 +218,7 @@ ScriptedImporter:
       y: 37
       width: 15
       height: 37
-    spriteID: a2edf75230a5aea39af7057532259afa
+    spriteID: acbc37a167a214124bcf8a3e389bf166
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -232,10 +227,10 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 25, y: 37}
-  - name: Frame_5
+  - name: new-player-walk-animation_Frame_5
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 1, y: 0.45945945}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -244,7 +239,7 @@ ScriptedImporter:
       y: 74
       width: 15
       height: 37
-    spriteID: 2774cf47ca13eac17aaa5d8c491c80d2
+    spriteID: 11306b2eba79c8ac29d976e6cb2ef25f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -254,21 +249,15 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 25, y: 74}
   spriteSheetImportData: []
-  tileSetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    uuid:
-      value0: 3461403445
-      value1: 0
-      value2: 0
-      value3: 0
-    guid: 0
+    guid: -212367055
     name: new-player-walk-animation
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Frame_0
+    - name: new-player-walk-animation_Frame_0
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -276,8 +265,8 @@ ScriptedImporter:
         y: 7
         width: 18
         height: 37
-      spriteId: 77b8de8b9d44d9a78892c67484e9de44
-    - name: Frame_1
+      spriteId: 84452eb826cfd910b8d415df7dd4303b
+    - name: new-player-walk-animation_Frame_1
       frameIndex: 1
       additiveSortOrder: 0
       cellRect:
@@ -285,8 +274,8 @@ ScriptedImporter:
         y: 7
         width: 21
         height: 37
-      spriteId: 1931f8095d634a000ad70a62228b79e0
-    - name: Frame_2
+      spriteId: bef0ada2e389a44c9aca403bbe220ca1
+    - name: new-player-walk-animation_Frame_2
       frameIndex: 2
       additiveSortOrder: 0
       cellRect:
@@ -294,8 +283,8 @@ ScriptedImporter:
         y: 7
         width: 25
         height: 37
-      spriteId: af13c66ec71af57ca8f8132e64d64d15
-    - name: Frame_3
+      spriteId: f03df90ea4c24807797a376e8461fbdf
+    - name: new-player-walk-animation_Frame_3
       frameIndex: 3
       additiveSortOrder: 0
       cellRect:
@@ -303,8 +292,8 @@ ScriptedImporter:
         y: 7
         width: 18
         height: 37
-      spriteId: 76560b6dc8a6edce285edf2860611b07
-    - name: Frame_4
+      spriteId: b55a6a3e9132112b3916129c963292cc
+    - name: new-player-walk-animation_Frame_4
       frameIndex: 4
       additiveSortOrder: 0
       cellRect:
@@ -312,8 +301,8 @@ ScriptedImporter:
         y: 7
         width: 15
         height: 37
-      spriteId: a2edf75230a5aea39af7057532259afa
-    - name: Frame_5
+      spriteId: acbc37a167a214124bcf8a3e389bf166
+    - name: new-player-walk-animation_Frame_5
       frameIndex: 5
       additiveSortOrder: 0
       cellRect:
@@ -321,12 +310,9 @@ ScriptedImporter:
         y: 7
         width: 15
         height: 37
-      spriteId: 2774cf47ca13eac17aaa5d8c491c80d2
+      spriteId: 11306b2eba79c8ac29d976e6cb2ef25f
     linkedCells: []
-    tileCells: []
-    tileSetIndex: 0
     parentIndex: -1
-  tileSets: []
   platformSettings:
   - name: DefaultTexturePlatform
     overridden: 0
@@ -368,4 +354,3 @@ ScriptedImporter:
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 48, y: 48}
-  previousTextureSize: {x: 64, y: 128}

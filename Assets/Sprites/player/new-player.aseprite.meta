@@ -8,7 +8,6 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
-  importerVersion: 2
   textureImporterSettings:
     alphaSource: 1
     mipMapMode: 0
@@ -84,8 +83,6 @@ ScriptedImporter:
     generateAnimationClips: 1
     addSortingGroup: 1
     addShadowCasters: 0
-    generateIndividualEvents: 1
-    generateSpriteAtlas: 1
   asepriteImporterSettings:
     fileImportMode: 1
     importHiddenLayers: 0
@@ -99,8 +96,6 @@ ScriptedImporter:
     generateAnimationClips: 1
     addSortingGroup: 1
     addShadowCasters: 0
-    generateIndividualEvents: 1
-    generateSpriteAtlas: 1
   importFileNodeState: 1
   platformSettingsDirtyTick: 0
   textureAssetName: 
@@ -139,7 +134,7 @@ ScriptedImporter:
       y: 4
       width: 21
       height: 36
-    spriteID: 56e37014427135da48b3244e4a86bf30
+    spriteID: 1c64d4df2997910348d20b39c0e9b90c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -149,15 +144,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
   spriteSheetImportData: []
-  tileSetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    uuid:
-      value0: 2034785914
-      value1: 0
-      value2: 0
-      value3: 0
-    guid: 0
+    guid: 356156210
     name: new-player
     layerFlags: 0
     layerType: 0
@@ -171,15 +160,11 @@ ScriptedImporter:
         y: 8
         width: 21
         height: 36
-      spriteId: 56e37014427135da48b3244e4a86bf30
+      spriteId: 1c64d4df2997910348d20b39c0e9b90c
     linkedCells: []
-    tileCells: []
-    tileSetIndex: 0
     parentIndex: -1
-  tileSets: []
   platformSettings: []
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 32, y: 48}
-  previousTextureSize: {x: 32, y: 64}
