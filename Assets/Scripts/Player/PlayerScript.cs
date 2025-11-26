@@ -95,7 +95,7 @@ namespace Player
         {
             if (currentHealth <= 0)
             {
-                SceneManager.LoadScene("RespawnScreen");
+                SceneManager.LoadScene("RespawnMenu");
             }
         }
     }
