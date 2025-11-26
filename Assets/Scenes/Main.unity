@@ -6385,7 +6385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   maxHealth: 2
-  speed: 2
+  speed: 5
   jumpForce: 5
   standardAttackDamage: 0.5
   specialAttackDamage: 1
@@ -6470,9 +6470,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65470efb3f47734e89682b244e1bfa58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 852997451}
+  jumpNodeHeightRequirement: 1
+  gridManager: {fileID: 1580724250}
   americanEnemy: {fileID: 1364070502}
-  nextWaypointDistance: 0.5
 --- !u!1 &1374732999
 GameObject:
   m_ObjectHideFlags: 0
@@ -6778,7 +6778,8 @@ MonoBehaviour:
   nodeRadius: 0.5
   displayGridGizmos: 1
   displayCircleGizmos: 0
-  maxSaveFallDistance: 0
+  maxSaveFallDistance: 5
+  maxJumpDistance: 5
 --- !u!114 &1580724251
 MonoBehaviour:
   m_ObjectHideFlags: 0
