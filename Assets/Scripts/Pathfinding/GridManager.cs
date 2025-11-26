@@ -15,6 +15,12 @@ public class Grid : MonoBehaviour
     // Helper to see the gizmos in inspector
     public bool displayGridGizmos = true;
     public bool displayCircleGizmos = true;
+    
+    [Header("Safety Settings")]
+    public int maxSaveFallDistance;
+    
+    [Header("Jump Settings")]
+    public int maxJumpDistance;
 
     void Awake()
     {
@@ -90,12 +96,79 @@ public class Grid : MonoBehaviour
                             continue;
                         }
                     }
+
+                    if (isNodeSave(neighbor))
+                    {
+                        neighbors.Add(neighbor);
+                    }
+                    else
+                    {
+                        if (x != 0)
+                        {
+                            if (IsLandAhead(neighbor, x))
+                            {
+                                neighbors.Add(neighbor);
+                            }
+                        }
+                    }
                     
                     neighbors.Add(neighbor);
                 }
             }
         }
         return neighbors;
+    }
+
+    bool isNodeSave(Node node)
+    {
+        if (node.isWall) return true;
+
+        for (int i = 1; i < maxSaveFallDistance; i++)
+        {
+            int checkY = node.gridY - i;
+
+            if (checkY < 0) return false;
+
+            if (grid[node.gridX, checkY].isWall) return true;
+        }
+
+        return false;
+    }
+
+    bool IsLandAhead(Node node, int x)
+    {
+        for (int i = 1; i <= maxJumpDistance; i++)
+        {
+            int targetX = node.gridX + (x * i);
+            int targetY = node.gridY;
+
+            int targetLower = node.gridY - 1;
+            int targetUpper = node.gridY + 1;
+
+            if (targetX >= 0 && targetX < gridSizeX)
+            {
+                if (grid[targetX, targetY].isWall) return true;
+                if (targetLower >= 0 && grid[targetX, targetLower].isWall) return true;
+                if (targetUpper < gridSizeY && grid[targetX, targetUpper].isWall) return true;
+            }
+        }
+        return false;
+    }
+    
+    public bool isUnitGrounded(Vector3 unitWorldPosition)
+    {
+        Node currentNode = NodeFromWorldPoint(unitWorldPosition);
+        
+        int checkX = currentNode.gridX;
+        int checkY = currentNode.gridY - 1;
+
+        if (checkY < 0) return false;
+
+        if (grid[checkX, checkY].isWall)
+        {
+            return true;
+        }
+        return false;
     }
 
     void OnDrawGizmos()

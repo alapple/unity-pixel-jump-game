@@ -61,7 +61,7 @@ namespace Pathfinding
                     int moveCost = GetDistance(currentNode, neighbor);
                     if (neighbor.gridY > currentNode.gridY)
                     {
-                        moveCost += 10;
+                        moveCost += 100;
                     }
                     if (neighbor.isWall || closedSet.Contains(neighbor)) continue;
                     
