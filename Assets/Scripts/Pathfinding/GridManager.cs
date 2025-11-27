@@ -12,10 +12,8 @@ public class Grid : MonoBehaviour
     float nodeDiameter;
     int gridSizeX, gridSizeY;
     
-    [Header("Safety Settings")]
+    [Header("Enemy Settings")]
     public int maxSaveFallDistance;
-    
-    [Header("Jump Settings")]
     public int maxJumpDistance;
     
     [Header(("Debug Settings"))]
