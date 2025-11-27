@@ -36,18 +36,18 @@ namespace Player
 
         void FixedUpdate()
         {
-            float direction = _controls.player.move.ReadValue<float>(); // A: -1; D: 1; 0: not moving
+            float direction = _controls.player.move.ReadValue<float>(); 
             if (direction != 0)
             {
                 transform.position += new Vector3(direction, 0, 0) * (Time.fixedDeltaTime * speed);
                 animator.SetBool(IsWalking, true);
                 if (direction > 0)
                 {
-                    transform.localScale = new Vector3(5, 5, 1); // Normal
+                    transform.localScale = new Vector3(5, 5, 1);
                 }
                 else if (direction < 0)
                 {
-                    transform.localScale = new Vector3(-5, 5, 1); // Alles gespiegelt
+                    transform.localScale = new Vector3(-5, 5, 1);
                 }
             }
             else
@@ -65,7 +65,8 @@ namespace Player
         {
             _controls.Disable();
         }
-        
+
+
         bool IsGrounded() {
             Vector2 position = transform.position;
             Vector2 direction = Vector2.down;
@@ -83,6 +84,7 @@ namespace Player
         public void ChangeHealth(int amount)
         {
             currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+            // Notify listeners whenever health changes
             OnHealthChanged?.Invoke(currentHealth, maxHealth);
             if (currentHealth == 0)
             {
