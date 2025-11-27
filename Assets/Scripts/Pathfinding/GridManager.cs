@@ -4,23 +4,24 @@ using System.Collections.Generic;
 public class Grid : MonoBehaviour
 {
     public LayerMask unwalkableMask;
-    public Vector2 gridWorldSize; // The total size (e.g., 20x10)
-    public float nodeRadius;      // Usually 0.5
+    public Vector2 gridWorldSize;
+    public float nodeRadius; 
     Node[,] grid;
     public List<Node> path;
 
     float nodeDiameter;
     int gridSizeX, gridSizeY;
-
-    // Helper to see the gizmos in inspector
-    public bool displayGridGizmos = true;
-    public bool displayCircleGizmos = true;
     
     [Header("Safety Settings")]
     public int maxSaveFallDistance;
     
     [Header("Jump Settings")]
     public int maxJumpDistance;
+    
+    [Header(("Debug Settings"))]
+    public bool displayGridGizmos = true;
+    public bool displayCircleGizmos = true;
+    public bool displayPathGizmos = true;
 
     void Awake()
     {
@@ -33,9 +34,7 @@ public class Grid : MonoBehaviour
     void CreateGrid()
     {
         grid = new Node[gridSizeX, gridSizeY];
-        
-        // FIX: The Bottom Left is now simply the object's position.
-        // We do NOT subtract half the size anymore.
+
         Vector3 worldBottomLeft = transform.position;
 
         for (int x = 0; x < gridSizeX; x++)
@@ -185,7 +184,7 @@ public class Grid : MonoBehaviour
             }
         }
 
-        if (path != null)
+        if (path != null && displayPathGizmos)
         {
             Gizmos.color = Color.green;
             for (int i = 0; i < path.Count - 1; i++)

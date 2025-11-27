@@ -53,29 +53,37 @@ public class EnemyMovement : MonoBehaviour
     void MoveToNode(Node targetNode)
     {
         Vector2 targetPos = targetNode.worldPosition;
+        bool test;
         
-        // --- HORIZONTAL MOVEMENT ---
-        // Calculate direction (-1 for left, 1 for right)
         float directionX = 0;
         if (transform.position.x < targetPos.x - 0.1f) directionX = 1;
         else if (transform.position.x > targetPos.x + 0.1f) directionX = -1;
 
-        // Apply Velocity
         Vector2 velocity = rb.linearVelocity;
         velocity.x = directionX * moveSpeed;
         rb.linearVelocity = velocity;
-
-        // --- JUMP MOVEMENT ---
-        // Check if the node is effectively higher than our feet
+        
         bool isTargetAbove = targetPos.y > transform.position.y + jumpNodeHeightRequirement;
 
-        // Only jump if we are supposed to go UP and we are currently on the ground
+        if (gridManager.IsUnitGrounded(transform.position))
+        {
+            test = true;
+        }
+        else
+        {
+            test = false;
+        }
+
+        if (!gridManager.IsUnitGrounded(targetPos) && test)
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0); 
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        }
+        
         if (isTargetAbove)
         {
             if (gridManager.IsUnitGrounded(transform.position))
             {
-                // Simple impulse jump
-                // We reset Y velocity first to ensure consistent jump height
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0); 
                 rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             }
