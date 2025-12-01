@@ -4572,7 +4572,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.95, y: 4, z: -9.945437}
+  m_LocalPosition: {x: 26.5, y: 3.9, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5128,7 +5128,7 @@ BoxCollider2D:
   m_Offset: {x: -0.02, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: -0.4848485}
+    pivot: {x: 0.5, y: 0.4848485}
     oldSize: {x: 0.16, y: 0.33}
     newSize: {x: 0.32, y: 0.32}
     adaptiveTilingThreshold: 0.5
@@ -5173,7 +5173,7 @@ Transform:
   m_GameObject: {fileID: 852997447}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.95, y: 4, z: 0.054562178}
+  m_LocalPosition: {x: 26.5, y: 3.9, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5349,7 +5349,7 @@ Transform:
   m_GameObject: {fileID: 897962879}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.95, y: 4, z: -9.945437}
+  m_LocalPosition: {x: 26.5, y: 3.9, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6284,7 +6284,7 @@ Transform:
   m_GameObject: {fileID: 1364070495}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.83, y: 3.79, z: 0}
+  m_LocalPosition: {x: 11.58, y: 3.58, z: 0}
   m_LocalScale: {x: 5.6581, y: 5.5255327, z: 5.6581}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6465,7 +6465,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1364070495}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65470efb3f47734e89682b244e1bfa58, type: 3}
   m_Name: 
@@ -6737,6 +6737,7 @@ GameObject:
   - component: {fileID: 1580724249}
   - component: {fileID: 1580724250}
   - component: {fileID: 1580724251}
+  - component: {fileID: 1580724252}
   m_Layer: 0
   m_Name: A*
   m_TagString: Untagged
@@ -6778,9 +6779,14 @@ MonoBehaviour:
   nodeRadius: 0.5
   maxSaveFallDistance: 5
   maxJumpDistance: 5
-  displayGridGizmos: 1
+  jumpVelocities:
+  - {x: 5, y: 5}
+  timeStep: 0.02
+  maxSteps: 120
+  displayGridGizmos: 0
   displayCircleGizmos: 0
   displayPathGizmos: 1
+  displayParabolicArc: 1
 --- !u!114 &1580724251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6796,6 +6802,20 @@ MonoBehaviour:
   seeker: {fileID: 1364070499}
   target: {fileID: 852997451}
   americanEnemy: {fileID: 1364070502}
+--- !u!114 &1580724252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580724247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27992dfb542d4f5aa108af1644c64726, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 852997450}
+  logLandingPosition: 0
 --- !u!1 &1699954021
 GameObject:
   m_ObjectHideFlags: 0

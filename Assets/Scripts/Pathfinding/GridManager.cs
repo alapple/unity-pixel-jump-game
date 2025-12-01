@@ -15,11 +15,18 @@ public class Grid : MonoBehaviour
     [Header("Enemy Settings")]
     public int maxSaveFallDistance;
     public int maxJumpDistance;
+
+    [Header("Physics Simulation")]
+    private float gravity = 9.81f;
+    public Vector2[] jumpVelocities;
+    public float timeStep; //0.1f
+    public int maxSteps; //20
     
     [Header(("Debug Settings"))]
     public bool displayGridGizmos = true;
     public bool displayCircleGizmos = true;
     public bool displayPathGizmos = true;
+    public bool displayParabolicArc = true;
 
     void Awake()
     {
@@ -63,6 +70,7 @@ public class Grid : MonoBehaviour
         int y = Mathf.RoundToInt((gridSizeY - 1) * percentY);
         return grid[x, y];
     }
+    
     public List<Node> GetNeighbors(Node node, int maxJumpHeight)
     {
         List<Node> neighbors = new List<Node>();
@@ -93,18 +101,72 @@ public class Grid : MonoBehaviour
                     }
                     else
                     {
-                        if (isGrounded && y == 0) 
-                            continue;
-
-                        if (x != 0 && IsLandAhead(neighbor, x))
+                        if (isGrounded)
                         {
-                            neighbors.Add(neighbor);
+                            foreach (Vector2 jumpVel in jumpVelocities)
+                            {
+                                Node landNodeRight = SimulateJump(node, jumpVel);
+                                if (landNodeRight != null && !landNodeRight.isWall)
+                                {
+                                    if (!neighbors.Contains(landNodeRight)) 
+                                        neighbors.Add(landNodeRight);
+                                }
+                                
+                                Node landNodeLeft = SimulateJump(node, new Vector2(-jumpVel.x, jumpVel.y));
+                                if (landNodeLeft != null && !landNodeLeft.isWall)
+                                {
+                                    if (!neighbors.Contains(landNodeLeft)) 
+                                        neighbors.Add(landNodeLeft);
+                                }
+                            }
                         }
+
                     }
                 }
             }
         }
         return neighbors;
+    }
+    
+    Node SimulateJump(Node startNode, Vector2 velocity)
+    {
+        Vector2 currentPos = startNode.worldPosition;
+        Vector2 currentVel = velocity;
+
+        for (int i = 0; i < maxSteps; i++)
+        {
+            currentVel.y -= gravity * timeStep;
+            currentPos += currentVel * timeStep;
+
+            // 1. Check for Wall Collision
+            // We use a small OverlapCircle for better precision than just checking the node center
+            if (Physics2D.OverlapCircle(currentPos, nodeRadius * 0.5f, unwalkableMask))
+            {
+                // We hit a wall! 
+                // Only count it as a landing if we are falling downwards
+                if (currentVel.y <= 0)
+                {
+                    // Look slightly ABOVE the collision point (0.6f is just above radius 0.5f)
+                    Vector2 landPos = currentPos + Vector2.up * (nodeRadius * 2f);
+                    Node landNode = NodeFromWorldPoint(landPos);
+
+                    // If the spot above the wall is valid (not a wall)
+                    if (landNode != null && !landNode.isWall)
+                    {
+                        return landNode; // SUCCESS: We found a valid landing spot!
+                    }
+                }
+                return null; // Crashed into side or ceiling
+            }
+
+            // 2. Safety Bounds Check
+            Node currentNode = NodeFromWorldPoint(currentPos);
+            if (currentNode.gridX < 0 || currentNode.gridX >= gridSizeX || currentNode.gridY < 0)
+            {
+                return null;
+            }
+        }
+        return null;
     }
 
     bool IsNodeSafe(Node node)
@@ -158,12 +220,69 @@ public class Grid : MonoBehaviour
         }
         return false;
     }
+    
+    
+// ---------------------------------------------------------
+    // HELPER FUNCTIONS FOR DRAWING THE ARC
+    // Paste these inside your Grid.cs class
+    // ---------------------------------------------------------
 
+    void DrawJumpArc(Node start, Node end)
+    {
+        // Safety Check: If we haven't defined jumps in the inspector, don't try to draw
+        if (jumpVelocities == null || jumpVelocities.Length == 0) return;
+
+        foreach (Vector2 jumpVel in jumpVelocities)
+        {
+            // Check Right Jump
+            if (SimulateJumpAndDraw(start, end, jumpVel)) return;
+            
+            // Check Left Jump (flip X)
+            if (SimulateJumpAndDraw(start, end, new Vector2(-jumpVel.x, jumpVel.y))) return;
+        }
+    }
+
+    bool SimulateJumpAndDraw(Node start, Node target, Vector2 velocity)
+    {
+        Vector2 currentPos = start.worldPosition;
+        Vector2 currentVel = velocity;
+        List<Vector3> points = new List<Vector3>();
+        points.Add(currentPos);
+
+        for (int i = 0; i < maxSteps; i++)
+        {
+            currentVel.y -= gravity * timeStep;
+            currentPos += currentVel * timeStep;
+            points.Add(currentPos);
+
+            // 1. DEBUG DRAW: Draw every step in faint gray so we know it's working
+            // Note: We use -0.1f z-depth to ensure it appears in front of background
+            if (i > 0) {
+                Gizmos.color = new Color(0.5f, 0.5f, 0.5f, 0.2f); // Faint Gray
+                Gizmos.DrawLine(points[i-1], points[i]);
+            }
+
+            // 2. HIT CHECK: Did we get close to the target?
+            // I increased the tolerance to 'nodeDiameter * 1.2f' to be more forgiving
+            if (Vector2.Distance(currentPos, target.worldPosition) < nodeDiameter * 1.2f)
+            {
+                // SUCCESS! Redraw this specific arc in GREEN (Thick)
+                Gizmos.color = Color.green;
+                for (int j = 0; j < points.Count - 1; j++)
+                {
+                    Gizmos.DrawLine(points[j], points[j + 1]);
+                }
+                return true; 
+            }
+
+            // Optimization check
+            if (currentPos.y < target.worldPosition.y - 5.0f) break;
+        }
+        return false;
+    }
     void OnDrawGizmos()
     {
-        // Draw the outline starting from the anchor
         Gizmos.color = Color.yellow;
-        // The center of the drawn cube needs to be offset by half size to match the anchor logic
         Vector3 center = transform.position + new Vector3(gridWorldSize.x / 2, gridWorldSize.y / 2, 0);
         Gizmos.DrawWireCube(center, new Vector3(gridWorldSize.x, gridWorldSize.y, 1));
 
@@ -193,6 +312,25 @@ public class Grid : MonoBehaviour
                 Gizmos.DrawLine(currentNode.worldPosition, nextNode.worldPosition);
                 
                 Gizmos.DrawSphere(currentNode.worldPosition, nodeRadius - 0.1f);
+            }
+        }
+        if (path != null && displayParabolicArc)
+        {
+            for (int i = 0; i < path.Count - 1; i++)
+            {
+                Node currentNode = path[i];
+                Node nextNode = path[i + 1];
+                
+                if (Vector3.Distance(currentNode.worldPosition, nextNode.worldPosition) < nodeDiameter * 1.5f)
+                {
+                    Gizmos.color = Color.black;
+                    Gizmos.DrawLine(currentNode.worldPosition, nextNode.worldPosition);
+                }
+                else
+                {
+                    Gizmos.color = Color.green;
+                    DrawJumpArc(currentNode, nextNode);
+                }
             }
         }
     }

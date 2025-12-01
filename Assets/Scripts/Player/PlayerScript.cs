@@ -67,7 +67,7 @@ namespace Player
         }
 
 
-        bool IsGrounded() {
+        public bool IsGrounded() {
             Vector2 position = transform.position;
             Vector2 direction = Vector2.down;
             float distance = 0.5f; 

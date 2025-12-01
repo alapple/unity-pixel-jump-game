@@ -7,12 +7,9 @@ public class EnemyMovement : MonoBehaviour
     [Header("Settings")]
     private float moveSpeed;
     private float jumpForce;
-    
-    // We only jump if the target is this much higher than us
     public float jumpNodeHeightRequirement;
 
     [Header("References")]
-    // Assign your Grid object here in the Inspector
     public Grid gridManager;
     public AmericanEnemy americanEnemy;
     
@@ -33,21 +30,57 @@ public class EnemyMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        // 1. Get the latest path from the Grid
-        // (Assuming your Pathfinding script updates 'gridManager.path' every frame)
         currentPath = gridManager.path;
+        if (currentPath == null || currentPath.Count < 2) return;
 
-        // 2. Safety Checks
-        // We need at least 2 nodes: [0] is current pos, [1] is next step
-        if (currentPath == null || currentPath.Count < 2) 
-            return;
-
-        // 3. Get the Next Step (Index 1)
-        // We ignore Index 0 because that is the node we are currently standing on
         Node nextNode = currentPath[1];
 
-        // 4. Move to Target
-        MoveToNode(nextNode);
+        // CHECK: Is this a walking connection or a jumping connection?
+        float distanceToNext = Vector2.Distance(transform.position, nextNode.worldPosition);
+
+        // If the next node is far away (> 2.0f), it's a PARABOLIC JUMP
+        if (distanceToNext > 2.0f)
+        {
+            if (gridManager.IsUnitGrounded(transform.position))
+            {
+                // STOP walking current velocity
+                rb.linearVelocity = Vector2.zero; 
+
+                // CALCULATE exact velocity to hit the target
+                // We use a helper function to solve the ballistic arc
+                Vector2 jumpVelocity = CalculateJumpVelocity(transform.position, nextNode.worldPosition, 1.0f); // 1.0f = time to hit target
+                
+                rb.AddForce(jumpVelocity, ForceMode2D.Impulse);
+                
+                // Hack: Wait a bit so we don't try to jump again immediately
+                // (In a real game, use a State Machine: Idle -> Pathing -> Jumping -> Landing)
+            }
+        }
+        else
+        {
+            // NORMAL WALKING
+            MoveToNode(nextNode);
+        }
+    }
+
+    // MATH WIZARDRY: Calculates force needed to hit a target point
+    Vector2 CalculateJumpVelocity(Vector2 start, Vector2 target, float time)
+    {
+        Vector2 distance = target - start;
+        Vector2 distanceXZ = distance; 
+        distanceXZ.y = 0;
+
+        float Sy = distance.y;
+        float Sxz = distanceXZ.magnitude;
+
+        float Vxz = Sxz / time;
+        float Vy = Sy / time + 0.5f * Mathf.Abs(Physics2D.gravity.y * rb.gravityScale) * time;
+
+        Vector2 result = distanceXZ.normalized;
+        result *= Vxz;
+        result.y = Vy;
+
+        return result;
     }
 
     void MoveToNode(Node targetNode)
@@ -88,5 +121,24 @@ public class EnemyMovement : MonoBehaviour
                 rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             }
         }
+    }
+    
+    Vector2 CalculateBallisticVelocity(Vector2 start, Vector2 target, float time)
+    {
+        Vector2 distance = target - start;
+        Vector2 distanceXZ = distance; 
+        distanceXZ.y = 0;
+
+        float Sy = distance.y;
+        float Sxz = distanceXZ.magnitude;
+
+        float Vxz = Sxz / time;
+        float Vy = Sy / time + 0.5f * Mathf.Abs(Physics2D.gravity.y) * time;
+
+        Vector2 result = distanceXZ.normalized;
+        result *= Vxz;
+        result.y = Vy;
+
+        return result;
     }
 }
