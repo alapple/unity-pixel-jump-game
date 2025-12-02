@@ -46,7 +46,6 @@ public class Grid : MonoBehaviour
         {
             for (int y = 0; y < gridSizeY; y++)
             {
-                // Calculate center of each node starting from the anchor
                 Vector3 worldPoint = worldBottomLeft 
                                      + Vector3.right * (x * nodeDiameter + nodeRadius) 
                                      + Vector3.up * (y * nodeDiameter + nodeRadius);
@@ -59,7 +58,6 @@ public class Grid : MonoBehaviour
 
     public Node NodeFromWorldPoint(Vector3 worldPosition)
     {
-        // FIX: Math is now relative to the transform.position (Anchor)
         float percentX = (worldPosition.x - transform.position.x) / gridWorldSize.x;
         float percentY = (worldPosition.y - transform.position.y) / gridWorldSize.y;
         
@@ -137,29 +135,21 @@ public class Grid : MonoBehaviour
         {
             currentVel.y -= gravity * timeStep;
             currentPos += currentVel * timeStep;
-
-            // 1. Check for Wall Collision
-            // We use a small OverlapCircle for better precision than just checking the node center
+            
             if (Physics2D.OverlapCircle(currentPos, nodeRadius * 0.5f, unwalkableMask))
             {
-                // We hit a wall! 
-                // Only count it as a landing if we are falling downwards
                 if (currentVel.y <= 0)
                 {
-                    // Look slightly ABOVE the collision point (0.6f is just above radius 0.5f)
                     Vector2 landPos = currentPos + Vector2.up * (nodeRadius * 2f);
                     Node landNode = NodeFromWorldPoint(landPos);
-
-                    // If the spot above the wall is valid (not a wall)
+                    
                     if (landNode != null && !landNode.isWall)
                     {
-                        return landNode; // SUCCESS: We found a valid landing spot!
+                        return landNode;
                     }
                 }
-                return null; // Crashed into side or ceiling
+                return null;
             }
-
-            // 2. Safety Bounds Check
             Node currentNode = NodeFromWorldPoint(currentPos);
             if (currentNode.gridX < 0 || currentNode.gridX >= gridSizeX || currentNode.gridY < 0)
             {
@@ -220,24 +210,15 @@ public class Grid : MonoBehaviour
         }
         return false;
     }
-    
-    
-// ---------------------------------------------------------
-    // HELPER FUNCTIONS FOR DRAWING THE ARC
-    // Paste these inside your Grid.cs class
-    // ---------------------------------------------------------
 
     void DrawJumpArc(Node start, Node end)
     {
-        // Safety Check: If we haven't defined jumps in the inspector, don't try to draw
         if (jumpVelocities == null || jumpVelocities.Length == 0) return;
 
         foreach (Vector2 jumpVel in jumpVelocities)
         {
-            // Check Right Jump
             if (SimulateJumpAndDraw(start, end, jumpVel)) return;
             
-            // Check Left Jump (flip X)
             if (SimulateJumpAndDraw(start, end, new Vector2(-jumpVel.x, jumpVel.y))) return;
         }
     }
@@ -254,19 +235,14 @@ public class Grid : MonoBehaviour
             currentVel.y -= gravity * timeStep;
             currentPos += currentVel * timeStep;
             points.Add(currentPos);
-
-            // 1. DEBUG DRAW: Draw every step in faint gray so we know it's working
-            // Note: We use -0.1f z-depth to ensure it appears in front of background
+            
             if (i > 0) {
-                Gizmos.color = new Color(0.5f, 0.5f, 0.5f, 0.2f); // Faint Gray
+                Gizmos.color = new Color(0.5f, 0.5f, 0.5f, 0.2f);
                 Gizmos.DrawLine(points[i-1], points[i]);
             }
-
-            // 2. HIT CHECK: Did we get close to the target?
-            // I increased the tolerance to 'nodeDiameter * 1.2f' to be more forgiving
+            
             if (Vector2.Distance(currentPos, target.worldPosition) < nodeDiameter * 1.2f)
             {
-                // SUCCESS! Redraw this specific arc in GREEN (Thick)
                 Gizmos.color = Color.green;
                 for (int j = 0; j < points.Count - 1; j++)
                 {
@@ -274,8 +250,7 @@ public class Grid : MonoBehaviour
                 }
                 return true; 
             }
-
-            // Optimization check
+            
             if (currentPos.y < target.worldPosition.y - 5.0f) break;
         }
         return false;
