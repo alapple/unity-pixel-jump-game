@@ -13,6 +13,10 @@ public class EnemyMovement : MonoBehaviour
     public Grid gridManager;
     public AmericanEnemy americanEnemy;
     
+    [Header("Combat Settings")]
+    public float stoppingDistance;
+    public Transform playerTransform;
+    
     Rigidbody2D rb;
     List<Node> currentPath;
 
@@ -30,6 +34,20 @@ public class EnemyMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        // 0. Safety Check
+        if (playerTransform == null) return;
+
+        // 1. DISTANCE CHECK
+        // Calculate direct distance to player
+        float distToPlayer = Vector2.Distance(transform.position, playerTransform.position);
+
+        // If we are close enough, STOP MOVING and return.
+        if (distToPlayer < stoppingDistance)
+        {
+            // Stop horizontal movement, but keep gravity (y)
+            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+            return; 
+        }
         currentPath = gridManager.path;
         if (currentPath == null || currentPath.Count < 2) return;
 
