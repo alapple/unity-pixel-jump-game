@@ -1,5 +1,6 @@
 using Gameplay;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 namespace Player
@@ -7,6 +8,14 @@ namespace Player
     public class PlayerScript : MonoBehaviour
     {
         private static readonly int IsWalking = Animator.StringToHash("isWalking");
+        private static readonly int SickleAttackTrigger = Animator.StringToHash("SickleAttack");
+        private static readonly int HammerAttackTrigger = Animator.StringToHash("HammerAttack");
+        private AttackStats _sickleAttack = new AttackStats(
+            5, 2, 1, SickleAttackTrigger
+            );
+        private AttackStats _hammerAttack = new AttackStats(
+            10, 2, 3, HammerAttackTrigger
+        );
         public float speed = 30f;
         public Rigidbody2D body;
         public float jumpHeight = 6f;
@@ -16,12 +25,12 @@ namespace Player
         public int maxHealth = 100;
         public int currentHealth;
         public System.Action<int, int> OnHealthChanged;
-
+        public InputAction sickleAttack, hammerAttack;
         [SerializeField]
         private Animator animator;
-    
+        
         void Awake()
-        {        
+        {
             currentHealth = maxHealth;
             _controls = new Controls();
             _controls.player.jump.performed += _ =>
@@ -29,8 +38,15 @@ namespace Player
                 if (!IsGrounded()) return;
                 body.AddForce(new Vector2(0, jumpHeight), ForceMode2D.Impulse);
             };
-
-            // Notify listeners of initial health value
+            _controls.player.sickleAttack.performed += _ =>
+            {
+                
+                animator.SetTrigger(SickleAttackTrigger);
+            };
+            _controls.player.hammerAttack.performed += _ =>
+            {
+                animator.SetTrigger(HammerAttackTrigger);
+            };
             OnHealthChanged?.Invoke(currentHealth, maxHealth);
         }
 
@@ -99,6 +115,11 @@ namespace Player
             {
                 SceneManager.LoadScene("RespawnMenu");
             }
+        }
+
+        private void PerformAttack(AttackStats attack)
+        {
+            
         }
     }
 }

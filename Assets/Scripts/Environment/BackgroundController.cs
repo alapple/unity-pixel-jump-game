@@ -1,4 +1,5 @@
 ﻿using System;
+using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -9,8 +10,7 @@ namespace Environment
     {
 
         private float _startPos, _length;
-        [SerializeField]
-        private GameObject cam;
+        [SerializeField] [CanBeNull] private GameObject cam;
         [SerializeField]
         private float parallaxFactor;
         private void Start()
@@ -21,11 +21,18 @@ namespace Environment
 
         void FixedUpdate()
         {
-            float distance = cam.transform.position.x * parallaxFactor;
-            float movement = cam.transform.position.x * (1 - parallaxFactor);
-            transform.position = new Vector3(_startPos + distance, transform.position.y, transform.position.z);
-            if (movement > _startPos + _length) _startPos += _length;
-            else if (movement < _startPos - _length) _startPos -= _length;
+            try
+            {
+                float distance = cam.transform.position.x * parallaxFactor;
+                float movement = cam.transform.position.x * (1 - parallaxFactor);
+                transform.position = new Vector3(_startPos + distance, transform.position.y, transform.position.z);
+                if (movement > _startPos + _length) _startPos += _length;
+                else if (movement < _startPos - _length) _startPos -= _length;
+            }
+            catch
+            {
+                Debug.LogWarning("Leck eier");
+            }
         }
     }
 }

@@ -8,6 +8,7 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  importerVersion: 2
   textureImporterSettings:
     alphaSource: 1
     mipMapMode: 0
@@ -272,13 +273,18 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 2010095145
+    uuid:
+      value0: 134885901
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 134885901
     name: new-player-hammer
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: new-player-hammer_Frame_0
+    - name: Frame_0
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -287,7 +293,7 @@ ScriptedImporter:
         width: 20
         height: 39
       spriteId: 40b09e9f57e7d61068e11c261bf066bb
-    - name: new-player-hammer_Frame_1
+    - name: Frame_1
       frameIndex: 1
       additiveSortOrder: 0
       cellRect:
@@ -296,7 +302,7 @@ ScriptedImporter:
         width: 20
         height: 39
       spriteId: 0ffd790dc5c582f01a68978cb106fd7f
-    - name: new-player-hammer_Frame_2
+    - name: Frame_2
       frameIndex: 2
       additiveSortOrder: 0
       cellRect:
@@ -305,7 +311,7 @@ ScriptedImporter:
         width: 31
         height: 42
       spriteId: f4949d9949c2e54d0b0f210d11d81ccd
-    - name: new-player-hammer_Frame_3
+    - name: Frame_3
       frameIndex: 3
       additiveSortOrder: 0
       cellRect:
@@ -314,7 +320,7 @@ ScriptedImporter:
         width: 31
         height: 44
       spriteId: 7f4310f8f039e1aac816ecde120d7bd3
-    - name: new-player-hammer_Frame_4
+    - name: Frame_4
       frameIndex: 4
       additiveSortOrder: 0
       cellRect:
@@ -323,7 +329,7 @@ ScriptedImporter:
         width: 31
         height: 44
       spriteId: cedf79bba778f45ee98531b75c9b6a8f
-    - name: new-player-hammer_Frame_5
+    - name: Frame_5
       frameIndex: 5
       additiveSortOrder: 0
       cellRect:
@@ -332,7 +338,7 @@ ScriptedImporter:
         width: 31
         height: 36
       spriteId: 0a34adcf61f7735668a07048293e2a94
-    - name: new-player-hammer_Frame_6
+    - name: Frame_6
       frameIndex: 6
       additiveSortOrder: 0
       cellRect:
@@ -348,3 +354,4 @@ ScriptedImporter:
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 64, y: 64}
+  previousTextureSize: {x: 128, y: 128}

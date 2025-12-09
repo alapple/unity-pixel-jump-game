@@ -109,6 +109,24 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""sickleAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""0d14b8fa-b898-4b0a-87a1-3dea871b16db"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""hammerAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""6049b214-5517-4e72-9e0d-baa126a74be8"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -155,6 +173,28 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e0ba216f-02cb-4bda-a977-c9814e5a0162"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""sickleAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""67cf5d40-27f9-4aba-b5b3-14effea594f5"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""hammerAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -165,6 +205,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_player = asset.FindActionMap("player", throwIfNotFound: true);
         m_player_jump = m_player.FindAction("jump", throwIfNotFound: true);
         m_player_move = m_player.FindAction("move", throwIfNotFound: true);
+        m_player_sickleAttack = m_player.FindAction("sickleAttack", throwIfNotFound: true);
+        m_player_hammerAttack = m_player.FindAction("hammerAttack", throwIfNotFound: true);
     }
 
     ~@Controls()
@@ -247,6 +289,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_player_jump;
     private readonly InputAction m_player_move;
+    private readonly InputAction m_player_sickleAttack;
+    private readonly InputAction m_player_hammerAttack;
     /// <summary>
     /// Provides access to input actions defined in input action map "player".
     /// </summary>
@@ -266,6 +310,14 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "player/move".
         /// </summary>
         public InputAction @move => m_Wrapper.m_player_move;
+        /// <summary>
+        /// Provides access to the underlying input action "player/sickleAttack".
+        /// </summary>
+        public InputAction @sickleAttack => m_Wrapper.m_player_sickleAttack;
+        /// <summary>
+        /// Provides access to the underlying input action "player/hammerAttack".
+        /// </summary>
+        public InputAction @hammerAttack => m_Wrapper.m_player_hammerAttack;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -298,6 +350,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @move.started += instance.OnMove;
             @move.performed += instance.OnMove;
             @move.canceled += instance.OnMove;
+            @sickleAttack.started += instance.OnSickleAttack;
+            @sickleAttack.performed += instance.OnSickleAttack;
+            @sickleAttack.canceled += instance.OnSickleAttack;
+            @hammerAttack.started += instance.OnHammerAttack;
+            @hammerAttack.performed += instance.OnHammerAttack;
+            @hammerAttack.canceled += instance.OnHammerAttack;
         }
 
         /// <summary>
@@ -315,6 +373,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @move.started -= instance.OnMove;
             @move.performed -= instance.OnMove;
             @move.canceled -= instance.OnMove;
+            @sickleAttack.started -= instance.OnSickleAttack;
+            @sickleAttack.performed -= instance.OnSickleAttack;
+            @sickleAttack.canceled -= instance.OnSickleAttack;
+            @hammerAttack.started -= instance.OnHammerAttack;
+            @hammerAttack.performed -= instance.OnHammerAttack;
+            @hammerAttack.canceled -= instance.OnHammerAttack;
         }
 
         /// <summary>
@@ -369,5 +433,19 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMove(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "sickleAttack" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSickleAttack(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "hammerAttack" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnHammerAttack(InputAction.CallbackContext context);
     }
 }

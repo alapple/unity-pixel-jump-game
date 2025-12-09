@@ -8,6 +8,7 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  importerVersion: 2
   textureImporterSettings:
     alphaSource: 1
     mipMapMode: 0
@@ -251,13 +252,18 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -1284971717
+    uuid:
+      value0: 2917773799
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: -1377193497
     name: idle-animation
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: idle-animation_Frame_0
+    - name: Frame_0
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -266,7 +272,7 @@ ScriptedImporter:
         width: 13
         height: 18
       spriteId: c7d67959211173d80935ac06572605e6
-    - name: idle-animation_Frame_1
+    - name: Frame_1
       frameIndex: 1
       additiveSortOrder: 0
       cellRect:
@@ -275,7 +281,7 @@ ScriptedImporter:
         width: 13
         height: 18
       spriteId: e4e12804dc828057fa3ac674d7222caa
-    - name: idle-animation_Frame_2
+    - name: Frame_2
       frameIndex: 2
       additiveSortOrder: 0
       cellRect:
@@ -284,7 +290,7 @@ ScriptedImporter:
         width: 13
         height: 18
       spriteId: 50922eaf4d8389ec3bf8fccedd985a75
-    - name: idle-animation_Frame_3
+    - name: Frame_3
       frameIndex: 3
       additiveSortOrder: 0
       cellRect:
@@ -293,7 +299,7 @@ ScriptedImporter:
         width: 13
         height: 19
       spriteId: d2824ecbdf9f5b3bfa8459321a6c5085
-    - name: idle-animation_Frame_4
+    - name: Frame_4
       frameIndex: 4
       additiveSortOrder: 0
       cellRect:
@@ -302,7 +308,7 @@ ScriptedImporter:
         width: 13
         height: 20
       spriteId: cc82d35c78b5b59d3b6a4005c9252462
-    - name: idle-animation_Frame_5
+    - name: Frame_5
       frameIndex: 5
       additiveSortOrder: 0
       cellRect:
@@ -318,3 +324,4 @@ ScriptedImporter:
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 32, y: 32}
+  previousTextureSize: {x: 64, y: 64}

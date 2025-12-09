@@ -8,6 +8,7 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  importerVersion: 2
   textureImporterSettings:
     alphaSource: 1
     mipMapMode: 0
@@ -356,13 +357,18 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -1834534384
+    uuid:
+      value0: 3143579216
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: -1151388080
     name: walk-animation
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: walk-animation_Frame_0
+    - name: Frame_0
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -371,7 +377,7 @@ ScriptedImporter:
         width: 13
         height: 18
       spriteId: 5df8e2bf07a628ad5a9fa8a9e93a0571
-    - name: walk-animation_Frame_1
+    - name: Frame_1
       frameIndex: 1
       additiveSortOrder: 0
       cellRect:
@@ -380,7 +386,7 @@ ScriptedImporter:
         width: 13
         height: 19
       spriteId: 686df889d0ef7915b846b1c95c865ce0
-    - name: walk-animation_Frame_2
+    - name: Frame_2
       frameIndex: 2
       additiveSortOrder: 0
       cellRect:
@@ -389,7 +395,7 @@ ScriptedImporter:
         width: 13
         height: 20
       spriteId: d74b818e5e85196008b59e148309f446
-    - name: walk-animation_Frame_3
+    - name: Frame_3
       frameIndex: 3
       additiveSortOrder: 0
       cellRect:
@@ -398,7 +404,7 @@ ScriptedImporter:
         width: 13
         height: 19
       spriteId: 09b79d94e345305c5822d3ecae5abe6d
-    - name: walk-animation_Frame_4
+    - name: Frame_4
       frameIndex: 4
       additiveSortOrder: 0
       cellRect:
@@ -407,7 +413,7 @@ ScriptedImporter:
         width: 13
         height: 18
       spriteId: c514c645b4d411b86a9791caafd56572
-    - name: walk-animation_Frame_5
+    - name: Frame_5
       frameIndex: 5
       additiveSortOrder: 0
       cellRect:
@@ -416,7 +422,7 @@ ScriptedImporter:
         width: 13
         height: 18
       spriteId: dee96011392fc7013bb69c77d3155e2e
-    - name: walk-animation_Frame_6
+    - name: Frame_6
       frameIndex: 6
       additiveSortOrder: 0
       cellRect:
@@ -425,7 +431,7 @@ ScriptedImporter:
         width: 13
         height: 19
       spriteId: a7a4137c560de2030a1b68c04356224c
-    - name: walk-animation_Frame_7
+    - name: Frame_7
       frameIndex: 7
       additiveSortOrder: 0
       cellRect:
@@ -434,7 +440,7 @@ ScriptedImporter:
         width: 13
         height: 19
       spriteId: 0558d098ce1c6efc18660d6faa6bc012
-    - name: walk-animation_Frame_8
+    - name: Frame_8
       frameIndex: 8
       additiveSortOrder: 0
       cellRect:
@@ -443,7 +449,7 @@ ScriptedImporter:
         width: 13
         height: 18
       spriteId: ed09ec4ca00cedd3e9d4f484b1b12bc0
-    - name: walk-animation_Frame_9
+    - name: Frame_9
       frameIndex: 9
       additiveSortOrder: 0
       cellRect:
@@ -452,7 +458,7 @@ ScriptedImporter:
         width: 13
         height: 18
       spriteId: 3323a4cb02b6f5778adf845495c5eb9d
-    - name: walk-animation_Frame_10
+    - name: Frame_10
       frameIndex: 10
       additiveSortOrder: 0
       cellRect:
@@ -468,3 +474,4 @@ ScriptedImporter:
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 13, y: 20}
+  previousTextureSize: {x: 64, y: 128}

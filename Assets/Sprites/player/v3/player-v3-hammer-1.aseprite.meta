@@ -8,6 +8,7 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  importerVersion: 2
   textureImporterSettings:
     alphaSource: 1
     mipMapMode: 0
@@ -75,7 +76,7 @@ ScriptedImporter:
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
-    defaultPivotAlignment: 7
+    defaultPivotAlignment: 0
     customPivotPosition: {x: 0.5, y: 0.5}
     mosaicPadding: 0
     spritePadding: 0
@@ -88,7 +89,7 @@ ScriptedImporter:
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
-    defaultPivotAlignment: 7
+    defaultPivotAlignment: 0
     customPivotPosition: {x: 0.5, y: 0.5}
     mosaicPadding: 0
     spritePadding: 0
@@ -97,7 +98,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638999173338457170
+  platformSettingsDirtyTick: 639002875886570410
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -122,9 +123,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: player-v3-hammer-1aseprite_Frame_0
+  - name: player-v3-hammer-1_Frame_0
     originalName: 
-    pivot: {x: 0.20833334, y: -0.4848485}
+    pivot: {x: 0.20833334, y: 0.4848485}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -134,7 +135,7 @@ ScriptedImporter:
       y: 33
       width: 24
       height: 33
-    spriteID: 9f772c48593f68b79aad4bcf1de92f3c
+    spriteID: 60e1b6a21eaaa7e91a1a48201794b80f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -143,9 +144,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 57, y: 33}
-  - name: player-v3-hammer-1aseprite_Frame_1
+  - name: player-v3-hammer-1_Frame_1
     originalName: 
-    pivot: {x: 0.29411766, y: -0.42105263}
+    pivot: {x: 0.29411766, y: 0.42105263}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -155,7 +156,7 @@ ScriptedImporter:
       y: 0
       width: 17
       height: 38
-    spriteID: 9e4481454af0e48169df7724f57e4251
+    spriteID: 842e262874d7409cfa04eaeea8c54c44
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -164,9 +165,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 82, y: 0}
-  - name: player-v3-hammer-1aseprite_Frame_2
+  - name: player-v3-hammer-1_Frame_2
     originalName: 
-    pivot: {x: 0.29411766, y: -0.42105263}
+    pivot: {x: 0.29411766, y: 0.42105263}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -176,7 +177,7 @@ ScriptedImporter:
       y: 38
       width: 17
       height: 38
-    spriteID: e16dd8384ead6dbe58312b613901e942
+    spriteID: 8f68121ded7352b3da1a017a9099651c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -185,9 +186,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 82, y: 38}
-  - name: player-v3-hammer-1aseprite_Frame_3
+  - name: player-v3-hammer-1_Frame_3
     originalName: 
-    pivot: {x: 0.29411766, y: -0.4}
+    pivot: {x: 0.29411766, y: 0.4}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -197,7 +198,7 @@ ScriptedImporter:
       y: 66
       width: 17
       height: 40
-    spriteID: 83f0e49cf0de21493beeeb21ffe7076c
+    spriteID: d91dd9c171e841e01bd5d2c2c2716c95
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -206,9 +207,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 57, y: 66}
-  - name: player-v3-hammer-1aseprite_Frame_4
+  - name: player-v3-hammer-1_Frame_4
     originalName: 
-    pivot: {x: 0.17857143, y: -0.4}
+    pivot: {x: 0.17857143, y: 0.4}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -218,7 +219,7 @@ ScriptedImporter:
       y: 0
       width: 28
       height: 40
-    spriteID: 6ce9eff73ae778c76bcc9a99abedb6cd
+    spriteID: 0b4352ba5f37be10ca06b674ad06d7e2
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -227,9 +228,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 29, y: 0}
-  - name: player-v3-hammer-1aseprite_Frame_5
+  - name: player-v3-hammer-1_Frame_5
     originalName: 
-    pivot: {x: 0.1724138, y: -0.3902439}
+    pivot: {x: 0.1724138, y: 0.3902439}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -239,7 +240,7 @@ ScriptedImporter:
       y: 42
       width: 29
       height: 41
-    spriteID: f5368e7576d7dd016bdc4c7cab548d54
+    spriteID: 1115f7ca0bbe156f69d952ae83b4b9f2
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -248,9 +249,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 42}
-  - name: player-v3-hammer-1aseprite_Frame_6
+  - name: player-v3-hammer-1_Frame_6
     originalName: 
-    pivot: {x: 0.1724138, y: -0.3809524}
+    pivot: {x: 0.1724138, y: 0.3809524}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -260,7 +261,7 @@ ScriptedImporter:
       y: 0
       width: 29
       height: 42
-    spriteID: 5c42e3150cd53faa59e99bb4d47fbccc
+    spriteID: 3006a397ff80f400d88e446c6b9b3733
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -269,9 +270,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: player-v3-hammer-1aseprite_Frame_7
+  - name: player-v3-hammer-1_Frame_7
     originalName: 
-    pivot: {x: 0.1851852, y: -0.37209302}
+    pivot: {x: 0.1851852, y: 0.37209302}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -281,7 +282,7 @@ ScriptedImporter:
       y: 83
       width: 27
       height: 43
-    spriteID: 9a472f8af590fc1eeb076d905388cd4a
+    spriteID: 3adf3e990961391efa880700e5f306ea
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -290,9 +291,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 83}
-  - name: player-v3-hammer-1aseprite_Frame_8
+  - name: player-v3-hammer-1_Frame_8
     originalName: 
-    pivot: {x: 0.1851852, y: -0.516129}
+    pivot: {x: 0.1851852, y: 0.516129}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -302,7 +303,7 @@ ScriptedImporter:
       y: 40
       width: 27
       height: 31
-    spriteID: b37f0bf93609ca60881474cb55bea9cf
+    spriteID: 4d1c8e82fc576b156a8b505d7d7f03a7
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -311,9 +312,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 29, y: 40}
-  - name: player-v3-hammer-1aseprite_Frame_9
+  - name: player-v3-hammer-1_Frame_9
     originalName: 
-    pivot: {x: 0.1851852, y: -0.516129}
+    pivot: {x: 0.1851852, y: 0.516129}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -323,7 +324,7 @@ ScriptedImporter:
       y: 71
       width: 27
       height: 31
-    spriteID: 2d2db84e8a966c689b139000ea2b2eb2
+    spriteID: 42f78b411786246f79c387e008cfb03f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -332,9 +333,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 29, y: 71}
-  - name: player-v3-hammer-1aseprite_Frame_10
+  - name: player-v3-hammer-1_Frame_10
     originalName: 
-    pivot: {x: 0.19999999, y: -0.4848485}
+    pivot: {x: 0.19999999, y: 0.4848485}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -344,7 +345,7 @@ ScriptedImporter:
       y: 0
       width: 25
       height: 33
-    spriteID: 248e5419be85b7424a126bd6ef99ff35
+    spriteID: a9cfd9428991971c4ab182e0d590b62a
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -356,13 +357,18 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 2125784889
-    name: player-v3-hammer-1aseprite
+    uuid:
+      value0: 3461755856
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: -833211440
+    name: player-v3-hammer-1
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: player-v3-hammer-1aseprite_Frame_0
+    - name: Frame_0
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -370,8 +376,8 @@ ScriptedImporter:
         y: 16
         width: 24
         height: 33
-      spriteId: 9f772c48593f68b79aad4bcf1de92f3c
-    - name: player-v3-hammer-1aseprite_Frame_1
+      spriteId: 60e1b6a21eaaa7e91a1a48201794b80f
+    - name: Frame_1
       frameIndex: 1
       additiveSortOrder: 0
       cellRect:
@@ -379,8 +385,8 @@ ScriptedImporter:
         y: 16
         width: 17
         height: 38
-      spriteId: 9e4481454af0e48169df7724f57e4251
-    - name: player-v3-hammer-1aseprite_Frame_2
+      spriteId: 842e262874d7409cfa04eaeea8c54c44
+    - name: Frame_2
       frameIndex: 2
       additiveSortOrder: 0
       cellRect:
@@ -388,8 +394,8 @@ ScriptedImporter:
         y: 16
         width: 17
         height: 38
-      spriteId: e16dd8384ead6dbe58312b613901e942
-    - name: player-v3-hammer-1aseprite_Frame_3
+      spriteId: 8f68121ded7352b3da1a017a9099651c
+    - name: Frame_3
       frameIndex: 3
       additiveSortOrder: 0
       cellRect:
@@ -397,8 +403,8 @@ ScriptedImporter:
         y: 16
         width: 17
         height: 40
-      spriteId: 83f0e49cf0de21493beeeb21ffe7076c
-    - name: player-v3-hammer-1aseprite_Frame_4
+      spriteId: d91dd9c171e841e01bd5d2c2c2716c95
+    - name: Frame_4
       frameIndex: 4
       additiveSortOrder: 0
       cellRect:
@@ -406,8 +412,8 @@ ScriptedImporter:
         y: 16
         width: 28
         height: 40
-      spriteId: 6ce9eff73ae778c76bcc9a99abedb6cd
-    - name: player-v3-hammer-1aseprite_Frame_5
+      spriteId: 0b4352ba5f37be10ca06b674ad06d7e2
+    - name: Frame_5
       frameIndex: 5
       additiveSortOrder: 0
       cellRect:
@@ -415,8 +421,8 @@ ScriptedImporter:
         y: 16
         width: 29
         height: 41
-      spriteId: f5368e7576d7dd016bdc4c7cab548d54
-    - name: player-v3-hammer-1aseprite_Frame_6
+      spriteId: 1115f7ca0bbe156f69d952ae83b4b9f2
+    - name: Frame_6
       frameIndex: 6
       additiveSortOrder: 0
       cellRect:
@@ -424,8 +430,8 @@ ScriptedImporter:
         y: 16
         width: 29
         height: 42
-      spriteId: 5c42e3150cd53faa59e99bb4d47fbccc
-    - name: player-v3-hammer-1aseprite_Frame_7
+      spriteId: 3006a397ff80f400d88e446c6b9b3733
+    - name: Frame_7
       frameIndex: 7
       additiveSortOrder: 0
       cellRect:
@@ -433,8 +439,8 @@ ScriptedImporter:
         y: 16
         width: 27
         height: 43
-      spriteId: 9a472f8af590fc1eeb076d905388cd4a
-    - name: player-v3-hammer-1aseprite_Frame_8
+      spriteId: 3adf3e990961391efa880700e5f306ea
+    - name: Frame_8
       frameIndex: 8
       additiveSortOrder: 0
       cellRect:
@@ -442,8 +448,8 @@ ScriptedImporter:
         y: 16
         width: 27
         height: 31
-      spriteId: b37f0bf93609ca60881474cb55bea9cf
-    - name: player-v3-hammer-1aseprite_Frame_9
+      spriteId: 4d1c8e82fc576b156a8b505d7d7f03a7
+    - name: Frame_9
       frameIndex: 9
       additiveSortOrder: 0
       cellRect:
@@ -451,8 +457,8 @@ ScriptedImporter:
         y: 16
         width: 27
         height: 31
-      spriteId: 2d2db84e8a966c689b139000ea2b2eb2
-    - name: player-v3-hammer-1aseprite_Frame_10
+      spriteId: 42f78b411786246f79c387e008cfb03f
+    - name: Frame_10
       frameIndex: 10
       additiveSortOrder: 0
       cellRect:
@@ -460,7 +466,7 @@ ScriptedImporter:
         y: 16
         width: 25
         height: 33
-      spriteId: 248e5419be85b7424a126bd6ef99ff35
+      spriteId: a9cfd9428991971c4ab182e0d590b62a
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -492,3 +498,4 @@ ScriptedImporter:
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 64, y: 64}
+  previousTextureSize: {x: 128, y: 128}
