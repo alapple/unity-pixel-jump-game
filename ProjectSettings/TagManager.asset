@@ -67,5 +67,8 @@ TagManager:
   - name: Game
     uniqueID: 2142250627
     locked: 0
+  - name: Effects
+    uniqueID: 3401849579
+    locked: 0
   m_RenderingLayers:
   - Default

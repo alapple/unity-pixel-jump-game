@@ -16,6 +16,9 @@ namespace Attack
         [SerializeField] 
         private LayerMask enemyLayer;
         public abstract Vector2 BoxSize { get; }
+        
+        [SerializeField]
+        private GameObject bloodEffectPrefab; 
        
         
         public void Attack()
@@ -50,6 +53,10 @@ namespace Attack
                     if (enemy.TryGetComponent<AmericanEnemy>(out var target))
                     {
                         target.ChangeHealth(-Damage);
+                        if (bloodEffectPrefab != null)
+                        {
+                            StartCoroutine(SpawnEffectDelayed(enemy.transform.position, AttackDelay / 2));
+                        }
                         Debug.Log($"Hit {enemy.name}!");
                         yield break; 
                     }
@@ -83,6 +90,14 @@ namespace Attack
         {
             yield return new WaitForSeconds(AttackDelay);
             AttackBlocked = false;
+        }
+        
+        private IEnumerator SpawnEffectDelayed(Vector3 position, float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            Vector3 spawnPos = position;
+            spawnPos.z = -1f; 
+            Instantiate(bloodEffectPrefab, spawnPos, Quaternion.identity);
         }
         
 
