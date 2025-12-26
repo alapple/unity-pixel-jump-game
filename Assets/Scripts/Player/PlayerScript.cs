@@ -27,15 +27,18 @@ namespace Player
         
         void Awake()
         {
-            sickleAttack.animator = animator;
-            hammerAttack.animator = animator;
+            if (sickleAttack != null) sickleAttack.Animator = animator;
+            if (hammerAttack != null) hammerAttack.Animator = animator;
+
             currentHealth = maxHealth;
             _controls = new Controls();
+            
             _controls.player.jump.performed += _ =>
             {
                 if (!IsGrounded()) return;
                 body.AddForce(new Vector2(0, jumpHeight), ForceMode2D.Impulse);
             };
+            
             _controls.player.sickleAttack.performed += _ =>
             {
                 sickleAttack.Attack(); 
@@ -47,6 +50,7 @@ namespace Player
                 hammerAttack.Attack();
                 Debug.Log("Sickle Attack");
             };
+            
             OnHealthChanged?.Invoke(currentHealth, maxHealth);
         }
 
@@ -79,7 +83,7 @@ namespace Player
 
         void OnDisable()
         {
-            _controls.Disable();
+            _controls?.Disable();
         }
 
 
@@ -100,7 +104,6 @@ namespace Player
         public void ChangeHealth(int amount)
         {
             currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-            // Notify listeners whenever health changes
             OnHealthChanged?.Invoke(currentHealth, maxHealth);
             if (currentHealth == 0)
             {

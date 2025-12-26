@@ -88,10 +88,11 @@ public class AmericanEnemy : MonoBehaviour
     public void ChangeHealth(int amount)
     {
         _currantHealth = Mathf.Clamp(_currantHealth + amount, 0, maxHealth);
-        // Notify listeners whenever health changes
         OnHealthChanged?.Invoke(_currantHealth, maxHealth);
         if (_currantHealth == 0)
         {
         }
+        
+        Debug.Log(_currantHealth);
     }
 }
