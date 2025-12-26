@@ -4572,7 +4572,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.05, y: 3.32, z: -9.945437}
+  m_LocalPosition: {x: 26.95, y: 4, z: -9.945437}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5063,6 +5063,8 @@ GameObject:
   - component: {fileID: 852997452}
   - component: {fileID: 852997453}
   - component: {fileID: 852997454}
+  - component: {fileID: 852997456}
+  - component: {fileID: 852997455}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5082,6 +5084,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5edc0bcb03809004bbf65cf960448cbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sickleAttack: {fileID: 852997456}
+  hammerAttack: {fileID: 852997455}
   speed: 7
   body: {fileID: 852997450}
   jumpHeight: 5
@@ -5090,24 +5094,6 @@ MonoBehaviour:
     m_Bits: 8
   maxHealth: 5
   currentHealth: 5
-  sickleAttack:
-    m_Name: Sickle Attack
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: e3367660-b350-4639-84ba-3b0eaccea8f9
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
-  hammerAttack:
-    m_Name: Hammer Attack
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: e307f2e7-2804-4124-9ed0-a7e928f0d136
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
   animator: {fileID: 852997453}
 --- !u!61 &852997449
 BoxCollider2D:
@@ -5288,6 +5274,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameUIHandler
   playerScript: {fileID: 852997448}
   uiDoc: {fileID: 1249301010}
+--- !u!114 &852997455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852997447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c96042af97494e368005eb861706f8b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &852997456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852997447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76740d12696b4766a58bf719e5b915bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &897962879
 GameObject:
   m_ObjectHideFlags: 0
@@ -6345,7 +6355,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: -0.073174946}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.53333336, y: 0.5}
     oldSize: {x: 0.15, y: 0.16}
     newSize: {x: 0.15, y: 0.16}
     adaptiveTilingThreshold: 0.5
