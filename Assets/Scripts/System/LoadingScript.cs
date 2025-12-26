@@ -10,7 +10,7 @@ namespace System
     public class LoadingScript : MonoBehaviour
     {
         AsyncOperation _asyncOperation;
-        bool _loadingDone  = false;
+        private bool _loadingDone  = false;
         public Slider loadingBar;
         public TextMeshProUGUI loadingTip;
 
@@ -22,29 +22,23 @@ namespace System
             DisplayLoadingTip();
         }
 
-        IEnumerator LoadAsyncScene(string SceneNameame)
+        IEnumerator LoadAsyncScene(string sceneName)
         {
-            _asyncOperation =  SceneManager.LoadSceneAsync(SceneNameame);
+            _asyncOperation =  SceneManager.LoadSceneAsync(sceneName);
             _asyncOperation.allowSceneActivation = false;
-            yield return new WaitForSeconds(2);
-            while (loadingBar.value < 0.7)
-            {
-                loadingBar.value += UnityEngine.Random.Range(0.1f, 0.3f);
-                yield return new WaitForSeconds(UnityEngine.Random.Range(0f, 2f));
-            }
 
-            while (!_asyncOperation.isDone)
+            while (loadingBar.value < 0.9f)
             {
-                loadingBar.value = _asyncOperation.progress;
-                if (_asyncOperation.progress >= 0.9f)
+                float targetProgress = Mathf.Min(_asyncOperation.progress / 0.9f, 1f);
+                loadingBar.value = Mathf.MoveTowards(loadingBar.value, targetProgress, Time.deltaTime * 0.5f);
+                    
+                if (loadingBar.value >= 0.9f && _asyncOperation.progress >= 0.9f)
                 {
                     _asyncOperation.allowSceneActivation = true;
-                    loadingBar.value = 1;
                 }
                 yield return null;
             }
-
-            _loadingDone = _asyncOperation.isDone;
+            _loadingDone = true;
         }
 
         void DisplayLoadingTip()
