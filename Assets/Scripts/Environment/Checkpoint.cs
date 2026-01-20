@@ -14,5 +14,10 @@ namespace Environment
                 Debug.Log("checkpoint reached");
             }   
         }
+
+        public bool getCheckpointReached()
+        {
+            return _checkpointReached;
+        }
     }
 }
