@@ -25,6 +25,7 @@ namespace System
         IEnumerator LoadAsyncScene(string sceneName)
         {
             _asyncOperation =  SceneManager.LoadSceneAsync(sceneName);
+            
             _asyncOperation.allowSceneActivation = false;
 
             while (loadingBar.value < 0.9f)

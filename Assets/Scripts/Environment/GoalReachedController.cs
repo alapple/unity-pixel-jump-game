@@ -1,5 +1,6 @@
 using Environment;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GoalReachedController : MonoBehaviour
 {
@@ -8,7 +9,8 @@ public class GoalReachedController : MonoBehaviour
     {
         if (other.CompareTag("Player") && checkpoint.getCheckpointReached())
         {
-            Debug.Log("Player reached Goal");
+            Debug.Log("Player entered Finish Flag trigger. Loading Menu scene...");
+            SceneManager.LoadScene("WinScene");   
         }
     }
 }

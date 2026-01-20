@@ -13,7 +13,6 @@ namespace Gameplay
             _collider2D = GetComponent<Collider2D>();
             if (_collider2D != null && !_collider2D.isTrigger)
             {
-                // Ensure this works as a trigger zone even if the flag wasn't set in the Inspector
                 Debug.LogWarning("OutOfBounds collider was not set as Trigger. Enabling isTrigger at runtime.", this);
                 _collider2D.isTrigger = true;
             }
