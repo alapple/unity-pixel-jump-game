@@ -709,10 +709,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 0.023584902, b: 0.023584902, a: 1}
-    m_HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
-    m_PressedColor: {r: 1, g: 0, b: 0, a: 1}
-    m_SelectedColor: {r: 1, g: 0, b: 0, a: 1}
+    m_NormalColor: {r: 1, g: 0.84939677, b: 0.2216981, a: 1}
+    m_HighlightedColor: {r: 0.9150943, g: 0.78337616, b: 0.22877358, a: 1}
+    m_PressedColor: {r: 0.8490566, g: 0.7222321, b: 0.18823424, a: 1}
+    m_SelectedColor: {r: 0.764151, g: 0.6430912, b: 0.13336597, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1

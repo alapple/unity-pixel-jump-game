@@ -21,18 +21,12 @@ namespace Environment
 
         void FixedUpdate()
         {
-            try
-            {
-                float distance = cam.transform.position.x * parallaxFactor;
-                float movement = cam.transform.position.x * (1 - parallaxFactor);
-                transform.position = new Vector3(_startPos + distance, transform.position.y, transform.position.z);
-                if (movement > _startPos + _length) _startPos += _length;
-                else if (movement < _startPos - _length) _startPos -= _length;
-            }
-            catch
-            {
-                Debug.LogWarning("Leck eier");
-            }
+            if (!cam) return;
+            float distance = cam.transform.position.x * parallaxFactor;
+            float movement = cam.transform.position.x * (1 - parallaxFactor);
+            transform.position = new Vector3(_startPos + distance, transform.position.y, transform.position.z);
+            if (movement > _startPos + _length) _startPos += _length;
+            else if (movement < _startPos - _length) _startPos -= _length;
         }
     }
 }

@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1eea11c148640e0bfb9037ea6c00e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Environment.BackgroundController
-  cam: {fileID: 519420028}
+  cam: {fileID: 0}
   parallaxFactor: 0.9
 --- !u!212 &181166652
 SpriteRenderer:
@@ -266,7 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1eea11c148640e0bfb9037ea6c00e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Environment.BackgroundController
-  cam: {fileID: 519420028}
+  cam: {fileID: 0}
   parallaxFactor: 0.5
 --- !u!212 &230741634
 SpriteRenderer:
@@ -7721,7 +7721,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1eea11c148640e0bfb9037ea6c00e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Environment.BackgroundController
-  cam: {fileID: 519420028}
+  cam: {fileID: 0}
   parallaxFactor: 0.5
 --- !u!212 &537518222
 SpriteRenderer:
@@ -7823,7 +7823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1eea11c148640e0bfb9037ea6c00e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Environment.BackgroundController
-  cam: {fileID: 519420028}
+  cam: {fileID: 0}
   parallaxFactor: 0.7
 --- !u!212 &582107470
 SpriteRenderer:
@@ -8723,7 +8723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1eea11c148640e0bfb9037ea6c00e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Environment.BackgroundController
-  cam: {fileID: 519420028}
+  cam: {fileID: 0}
   parallaxFactor: 0.7
 --- !u!212 &692717878
 SpriteRenderer:
@@ -9077,6 +9077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccfe863590dc5eb5484adb83c4ab2e3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkpoint: {fileID: 1143015284}
 --- !u!19719996 &714311991
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -9584,7 +9585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1eea11c148640e0bfb9037ea6c00e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Environment.BackgroundController
-  cam: {fileID: 519420028}
+  cam: {fileID: 0}
   parallaxFactor: 0.9
 --- !u!212 &985973814
 SpriteRenderer:
@@ -9686,7 +9687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1eea11c148640e0bfb9037ea6c00e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Environment.BackgroundController
-  cam: {fileID: 519420028}
+  cam: {fileID: 0}
   parallaxFactor: 0.8
 --- !u!212 &1085523116
 SpriteRenderer:
@@ -9788,7 +9789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1eea11c148640e0bfb9037ea6c00e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Environment.BackgroundController
-  cam: {fileID: 519420028}
+  cam: {fileID: 0}
   parallaxFactor: 0.8
 --- !u!212 &1128156921
 SpriteRenderer:
@@ -10228,7 +10229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1eea11c148640e0bfb9037ea6c00e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Environment.BackgroundController
-  cam: {fileID: 519420028}
+  cam: {fileID: 0}
   parallaxFactor: 0.6
 --- !u!212 &1177068744
 SpriteRenderer:
@@ -10867,7 +10868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1eea11c148640e0bfb9037ea6c00e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Environment.BackgroundController
-  cam: {fileID: 519420028}
+  cam: {fileID: 0}
   parallaxFactor: 1
 --- !u!212 &1417963848
 SpriteRenderer:
@@ -11173,7 +11174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1eea11c148640e0bfb9037ea6c00e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Environment.BackgroundController
-  cam: {fileID: 519420028}
+  cam: {fileID: 0}
   parallaxFactor: 1
 --- !u!212 &1711068384
 SpriteRenderer:
@@ -11379,7 +11380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1eea11c148640e0bfb9037ea6c00e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Environment.BackgroundController
-  cam: {fileID: 519420028}
+  cam: {fileID: 0}
   parallaxFactor: 0.6
 --- !u!212 &1760645721
 SpriteRenderer:
